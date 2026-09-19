@@ -1,0 +1,242 @@
+/**
+ * Nova UI — Select Component Styles
+ *
+ * Implements @layer nova.components for dropdown and multi-select.
+ */
+@layer nova.components {
+  .nova-select-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nova-space-1-5);
+    width: 100%;
+    font-family: var(--nova-font-sans);
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .nova-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nova-space-2);
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--nova-color-surface);
+    border: 1px solid var(--nova-color-border);
+    border-radius: var(--nova-radius-md);
+    color: var(--nova-color-text);
+    font-family: inherit;
+    font-size: var(--nova-text-sm);
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition:
+      border-color var(--nova-transition-fast),
+      box-shadow var(--nova-transition-fast);
+  }
+
+  .nova-select-trigger:hover:not(:disabled) {
+    border-color: var(--nova-color-border-hover);
+  }
+
+  .nova-select-trigger:focus,
+  .nova-select-trigger--open {
+    border-color: var(--nova-color-border-focus);
+    box-shadow: 0 0 0 var(--nova-ring-width) rgba(99, 102, 241, 0.25);
+  }
+
+  /* Sizes */
+  .nova-select-trigger--sm {
+    min-height: 32px;
+    padding: var(--nova-space-1) var(--nova-space-2-5);
+    font-size: var(--nova-text-xs);
+    border-radius: var(--nova-radius-sm);
+  }
+
+  .nova-select-trigger--md {
+    min-height: 40px;
+    padding: var(--nova-space-1-5) var(--nova-space-3);
+    font-size: var(--nova-text-sm);
+  }
+
+  .nova-select-trigger--lg {
+    min-height: 48px;
+    padding: var(--nova-space-2) var(--nova-space-4);
+    font-size: var(--nova-text-base);
+    border-radius: var(--nova-radius-lg);
+  }
+
+  /* Error state */
+  .nova-select-trigger--error {
+    border-color: var(--nova-color-danger);
+  }
+  .nova-select-trigger--error:focus {
+    border-color: var(--nova-color-danger);
+    box-shadow: 0 0 0 var(--nova-ring-width) rgba(239, 68, 68, 0.25);
+  }
+
+  /* Disabled */
+  .nova-select-trigger:disabled,
+  .nova-select-trigger--disabled {
+    background-color: var(--nova-color-muted);
+    color: var(--nova-color-text-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .nova-select-value {
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: var(--nova-space-1-5);
+    flex-wrap: wrap;
+  }
+
+  .nova-select-placeholder {
+    color: var(--nova-color-text-muted);
+  }
+
+  .nova-select-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--nova-space-1);
+    flex-shrink: 0;
+  }
+
+  .nova-select-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--nova-color-text-muted);
+    transition: transform var(--nova-transition-fast);
+  }
+
+  .nova-select-arrow--open {
+    transform: rotate(180deg);
+  }
+
+  .nova-select-clear {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: var(--nova-color-text-muted);
+    cursor: pointer;
+    padding: 2px;
+    border-radius: var(--nova-radius-sm);
+  }
+  .nova-select-clear:hover {
+    color: var(--nova-color-text);
+  }
+
+  /* Dropdown Menu */
+  .nova-select-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: var(--nova-z-dropdown);
+    background-color: var(--nova-color-surface);
+    border: 1px solid var(--nova-color-border);
+    border-radius: var(--nova-radius-md);
+    box-shadow: var(--nova-shadow-lg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 280px;
+  }
+
+  .nova-select-search {
+    padding: var(--nova-space-2);
+    border-bottom: 1px solid var(--nova-color-border);
+  }
+
+  .nova-select-search-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--nova-space-1-5) var(--nova-space-2-5);
+    border: 1px solid var(--nova-color-border);
+    border-radius: var(--nova-radius-sm);
+    font-size: var(--nova-text-xs);
+    font-family: inherit;
+    outline: none;
+    color: var(--nova-color-text);
+    background-color: var(--nova-color-surface);
+  }
+
+  .nova-select-search-input:focus {
+    border-color: var(--nova-color-primary);
+  }
+
+  .nova-select-options {
+    overflow-y: auto;
+    padding: var(--nova-space-1);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-height: 220px;
+  }
+
+  .nova-select-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--nova-space-2) var(--nova-space-3);
+    border-radius: var(--nova-radius-sm);
+    font-size: var(--nova-text-sm);
+    color: var(--nova-color-text);
+    cursor: pointer;
+    transition: background-color var(--nova-transition-fast);
+  }
+
+  .nova-select-option:hover,
+  .nova-select-option--highlighted {
+    background-color: var(--nova-color-muted);
+  }
+
+  .nova-select-option--selected {
+    color: var(--nova-color-primary);
+    font-weight: 500;
+    background-color: rgba(99, 102, 241, 0.08);
+  }
+
+  .nova-select-option--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .nova-select-empty {
+    padding: var(--nova-space-4);
+    text-align: center;
+    color: var(--nova-color-text-muted);
+    font-size: var(--nova-text-xs);
+  }
+
+  /* Multi-select chips */
+  .nova-select-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background-color: var(--nova-color-muted);
+    border-radius: var(--nova-radius-sm);
+    padding: 2px 6px;
+    font-size: var(--nova-text-xs);
+    color: var(--nova-color-text);
+  }
+
+  .nova-select-chip__remove {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: var(--nova-color-text-muted);
+  }
+  .nova-select-chip__remove:hover {
+    color: var(--nova-color-danger);
+  }
+}

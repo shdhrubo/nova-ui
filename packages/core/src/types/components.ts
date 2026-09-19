@@ -221,3 +221,120 @@ export interface NovaDropdownProps {
   /** Whether the dropdown is disabled */
   disabled?: boolean;
 }
+
+// ============================================
+// Textarea
+// ============================================
+
+export interface NovaTextareaProps {
+  /** Label text */
+  label?: string;
+  /** Placeholder text */
+  placeholder?: string;
+  /** Current text value */
+  value?: string;
+  /** Visible text rows */
+  rows?: number;
+  /** Whether the textarea automatically adjusts height to fit content */
+  autoResize?: boolean;
+  /** Maximum character limit */
+  maxLength?: number;
+  /** Whether to show the character counter */
+  showCount?: boolean;
+  /** Whether the textarea is disabled */
+  disabled?: boolean;
+  /** Whether the textarea is read-only */
+  readonly?: boolean;
+  /** Whether the textarea is required */
+  required?: boolean;
+  /** Error message */
+  error?: string;
+  /** Hint text */
+  hint?: string;
+  /** Size variant */
+  size?: NovaSize;
+}
+
+// ============================================
+// Checkbox
+// ============================================
+
+export interface NovaCheckboxProps {
+  /** Label text */
+  label?: string;
+  /** Whether the checkbox is checked */
+  checked?: boolean;
+  /** Whether the checkbox is in indeterminate / mixed state */
+  indeterminate?: boolean;
+  /** Whether the checkbox is disabled */
+  disabled?: boolean;
+  /** Whether the checkbox is required */
+  required?: boolean;
+  /** Error message */
+  error?: string;
+  /** Hint text */
+  hint?: string;
+}
+
+// ============================================
+// Radio & Radio Group
+// ============================================
+
+export interface NovaRadioOption {
+  value: string;
+  label: string;
+  disabled?: boolean;
+  hint?: string;
+}
+
+export interface NovaRadioProps {
+  /** Label text */
+  label?: string;
+  /** Value when selected */
+  value: string;
+  /** Radio group name */
+  name?: string;
+  /** Whether selected */
+  checked?: boolean;
+  /** Whether disabled */
+  disabled?: boolean;
+}
+
+export interface NovaRadioGroupProps {
+  /** Group label */
+  label?: string;
+  /** Radio group name */
+  name?: string;
+  /** Currently selected value */
+  value?: string;
+  /** Options list */
+  options?: NovaRadioOption[];
+  /** Layout orientation */
+  orientation?: NovaOrientation;
+  /** Whether the entire group is disabled */
+  disabled?: boolean;
+  /** Whether required */
+  required?: boolean;
+  /** Error message */
+  error?: string;
+  /** Hint text */
+  hint?: string;
+}
+
+// ============================================
+// Switch
+// ============================================
+
+export interface NovaSwitchProps {
+  /** Label text */
+  label?: string;
+  /** Whether the switch is turned on */
+  checked?: boolean;
+  /** Whether the switch is disabled */
+  disabled?: boolean;
+  /** Switch size */
+  size?: NovaSize;
+  /** Position of the label relative to the switch */
+  labelPosition?: 'left' | 'right';
+}
+

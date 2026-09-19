@@ -25,6 +25,12 @@ export type {
   NovaTooltipProps,
   NovaDropdownItem,
   NovaDropdownProps,
+  NovaTextareaProps,
+  NovaCheckboxProps,
+  NovaRadioOption,
+  NovaRadioProps,
+  NovaRadioGroupProps,
+  NovaSwitchProps,
 } from './types/components';
 
 // Accessibility

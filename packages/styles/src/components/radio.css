@@ -1,0 +1,99 @@
+/**
+ * Nova UI — Radio & Radio Group Component Styles
+ *
+ * Implements @layer nova.components for single-choice option sets.
+ */
+@layer nova.components {
+  .nova-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nova-space-2-5);
+    font-family: var(--nova-font-sans);
+    box-sizing: border-box;
+  }
+
+  .nova-radio-group--horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--nova-space-4);
+  }
+
+  .nova-radio-group__label {
+    font-size: var(--nova-text-sm);
+    font-weight: 500;
+    color: var(--nova-color-text);
+    margin-bottom: var(--nova-space-1);
+  }
+
+  .nova-radio-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nova-space-2);
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .nova-radio-wrapper--disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .nova-radio-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .nova-radio-circle {
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+    border: 1px solid var(--nova-color-border);
+    border-radius: var(--nova-radius-full);
+    background-color: var(--nova-color-surface);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition:
+      border-color var(--nova-transition-fast),
+      box-shadow var(--nova-transition-fast);
+  }
+
+  .nova-radio-wrapper:hover:not(.nova-radio-wrapper--disabled) .nova-radio-circle {
+    border-color: var(--nova-color-border-hover);
+  }
+
+  .nova-radio-wrapper:focus-within .nova-radio-circle {
+    outline: var(--nova-ring-width) solid var(--nova-color-border-focus);
+    outline-offset: var(--nova-ring-offset);
+  }
+
+  .nova-radio-circle--checked {
+    border-color: var(--nova-color-primary);
+  }
+
+  .nova-radio-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--nova-radius-full);
+    background-color: var(--nova-color-primary);
+    transform: scale(0);
+    transition: transform var(--nova-transition-fast);
+  }
+
+  .nova-radio-circle--checked .nova-radio-dot {
+    transform: scale(1);
+  }
+
+  .nova-radio-label {
+    font-size: var(--nova-text-sm);
+    color: var(--nova-color-text);
+    line-height: 1.4;
+  }
+}

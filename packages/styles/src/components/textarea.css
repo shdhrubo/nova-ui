@@ -1,0 +1,108 @@
+/**
+ * Nova UI — Textarea Component Styles
+ *
+ * Implements @layer nova.components for multi-line text inputs.
+ */
+@layer nova.components {
+  .nova-textarea-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nova-space-1-5);
+    width: 100%;
+    font-family: var(--nova-font-sans);
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .nova-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    color: var(--nova-color-text);
+    background-color: var(--nova-color-surface);
+    border: 1px solid var(--nova-color-border);
+    border-radius: var(--nova-radius-md);
+    padding: var(--nova-space-2-5) var(--nova-space-3);
+    font-size: var(--nova-text-sm);
+    line-height: 1.5;
+    outline: none;
+    resize: vertical;
+    transition:
+      border-color var(--nova-transition-fast),
+      box-shadow var(--nova-transition-fast);
+  }
+
+  .nova-textarea::placeholder {
+    color: var(--nova-color-text-muted);
+  }
+
+  .nova-textarea:hover:not(:disabled):not([readonly]) {
+    border-color: var(--nova-color-border-hover);
+  }
+
+  .nova-textarea:focus {
+    border-color: var(--nova-color-border-focus);
+    box-shadow: 0 0 0 var(--nova-ring-width) rgba(99, 102, 241, 0.25);
+  }
+
+  .nova-textarea--auto-resize {
+    resize: none;
+    overflow-y: hidden;
+  }
+
+  /* Sizes */
+  .nova-textarea--sm {
+    font-size: var(--nova-text-xs);
+    padding: var(--nova-space-2) var(--nova-space-2-5);
+    border-radius: var(--nova-radius-sm);
+  }
+
+  .nova-textarea--md {
+    font-size: var(--nova-text-sm);
+    padding: var(--nova-space-2-5) var(--nova-space-3);
+  }
+
+  .nova-textarea--lg {
+    font-size: var(--nova-text-base);
+    padding: var(--nova-space-3) var(--nova-space-4);
+    border-radius: var(--nova-radius-lg);
+  }
+
+  /* Error state */
+  .nova-textarea--error {
+    border-color: var(--nova-color-danger);
+  }
+  .nova-textarea--error:focus {
+    border-color: var(--nova-color-danger);
+    box-shadow: 0 0 0 var(--nova-ring-width) rgba(239, 68, 68, 0.25);
+  }
+
+  /* Disabled & Readonly */
+  .nova-textarea:disabled,
+  .nova-textarea--disabled {
+    background-color: var(--nova-color-muted);
+    color: var(--nova-color-text-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .nova-textarea[readonly] {
+    background-color: var(--nova-color-muted);
+    cursor: default;
+  }
+
+  /* Footer: hint/error on left, count on right */
+  .nova-textarea-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--nova-space-2);
+  }
+
+  .nova-textarea-count {
+    font-size: var(--nova-text-xs);
+    color: var(--nova-color-text-muted);
+    margin-left: auto;
+    user-select: none;
+  }
+}

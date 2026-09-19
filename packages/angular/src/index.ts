@@ -4,21 +4,37 @@
  * Public API for @nova-ui/angular.
  */
 
-// Components
+// Milestone 2 Components
 export * from './button';
 export * from './input';
 export * from './card';
 export * from './badge';
 export * from './alert';
 
+// Milestone 3 Form Components
+export * from './textarea';
+export * from './select';
+export * from './checkbox';
+export * from './radio';
+export * from './switch';
+
 // Re-export core types for convenience
 export type {
   NovaSize,
   NovaVariant,
   NovaStatus,
+  NovaOrientation,
   NovaButtonProps,
   NovaInputProps,
   NovaCardProps,
   NovaBadgeProps,
   NovaAlertProps,
+  NovaTextareaProps,
+  NovaSelectProps,
+  NovaSelectOption,
+  NovaCheckboxProps,
+  NovaRadioProps,
+  NovaRadioGroupProps,
+  NovaRadioOption,
+  NovaSwitchProps,
 } from '@nova-ui/core';

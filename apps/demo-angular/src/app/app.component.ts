@@ -14,6 +14,12 @@ import {
   NovaAlertComponent,
   NovaAlertTitleComponent,
   NovaAlertDescriptionComponent,
+  NovaTextareaComponent,
+  NovaSelectComponent,
+  NovaCheckboxComponent,
+  NovaRadioGroupComponent,
+  NovaRadioComponent,
+  NovaSwitchComponent,
 } from '@nova-ui/angular';
 
 @Component({
@@ -34,6 +40,12 @@ import {
     NovaAlertComponent,
     NovaAlertTitleComponent,
     NovaAlertDescriptionComponent,
+    NovaTextareaComponent,
+    NovaSelectComponent,
+    NovaCheckboxComponent,
+    NovaRadioGroupComponent,
+    NovaRadioComponent,
+    NovaSwitchComponent,
   ],
   template: `
     <div class="demo-layout">
@@ -48,7 +60,7 @@ import {
         </div>
 
         <div class="demo-header__actions">
-          <nova-badge variant="primary" size="md">Milestone 2</nova-badge>
+          <nova-badge variant="primary" size="md">Milestone 3 — 10 Components</nova-badge>
           <nova-button
             variant="outline"
             size="sm"
@@ -64,67 +76,179 @@ import {
         <!-- Introduction Banner -->
         <section class="demo-section">
           <nova-alert variant="info" [dismissible]="true" (dismissed)="onAlertDismissed('intro')">
-            <nova-alert-title>Welcome to Nova UI Interactive Playground</nova-alert-title>
+            <nova-alert-title>Nova UI Milestone 3 Active</nova-alert-title>
             <nova-alert-description>
-              This showcase demonstrates the first 5 components built for Angular using token-driven styles and full accessibility support.
+              Now featuring all 10 core & form components: Button, Input, Card, Badge, Alert, Textarea, Select, Checkbox, Radio, and Switch!
             </nova-alert-description>
           </nova-alert>
         </section>
 
-        <!-- 1. Alert Components -->
+        <!-- 1. Milestone 3: Complete Form Components Suite -->
         <section class="demo-section">
-          <h2 class="demo-section__title">1. Alerts</h2>
-          <p class="demo-section__desc">Contextual feedback messages with semantic variants, embedded icons, and dismiss handlers.</p>
+          <h2 class="demo-section__title">1. Form Components Suite (Milestone 3)</h2>
+          <p class="demo-section__desc">Full Reactive Forms ControlValueAccessor synchronization across all 5 form controls.</p>
 
-          <div class="demo-grid demo-grid--col1">
-            <nova-alert variant="success" [dismissible]="true">
-              <nova-alert-title>Success</nova-alert-title>
-              <nova-alert-description>All 4 monorepo packages compiled cleanly with zero errors.</nova-alert-description>
-            </nova-alert>
+          <div class="demo-grid demo-grid--2col">
+            <!-- Reactive Form Card -->
+            <nova-card variant="elevated" padding="md">
+              <nova-card-header>
+                <nova-card-title>Developer Profile Form</nova-card-title>
+                <nova-card-description>Edit any field below to watch the live reactive state update.</nova-card-description>
+              </nova-card-header>
 
-            <nova-alert variant="warning" [dismissible]="true">
-              <nova-alert-title>Warning</nova-alert-title>
-              <nova-alert-description>Remember to test all reactive form controls before shipping to production.</nova-alert-description>
-            </nova-alert>
+              <nova-card-content>
+                <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()" class="demo-form">
+                  <!-- Text Input -->
+                  <nova-input
+                    label="Full Name"
+                    placeholder="e.g. Shoriful Habib"
+                    [formControl]="nameControl"
+                    [required]="true"
+                  ></nova-input>
 
-            <nova-alert variant="danger" [dismissible]="true">
-              <nova-alert-title>Danger</nova-alert-title>
-              <nova-alert-description>Network timeout while fetching remote configuration.</nova-alert-description>
-            </nova-alert>
+                  <!-- Email Input -->
+                  <nova-input
+                    label="Email Address"
+                    type="email"
+                    placeholder="shoriful@example.com"
+                    [formControl]="emailControl"
+                    [required]="true"
+                    [error]="emailControl.invalid && emailControl.touched ? 'Valid email required' : undefined"
+                  ></nova-input>
+
+                  <!-- Single Select -->
+                  <nova-select
+                    label="Country / Region"
+                    placeholder="Choose country..."
+                    [options]="countryOptions"
+                    optionLabel="name"
+                    optionValue="code"
+                    [searchable]="true"
+                    [clearable]="true"
+                    [formControl]="countryControl"
+                    [required]="true"
+                  ></nova-select>
+
+                  <!-- Multi-Select with Chips -->
+                  <nova-select
+                    label="Primary Skills (Multi-select)"
+                    placeholder="Choose skills..."
+                    [options]="skillOptions"
+                    [multiple]="true"
+                    [searchable]="true"
+                    [formControl]="skillsControl"
+                  ></nova-select>
+
+                  <!-- Textarea with Auto-Resize and Live Count -->
+                  <nova-textarea
+                    label="Developer Bio"
+                    placeholder="Share your experience..."
+                    [formControl]="bioControl"
+                    [autoResize]="true"
+                    [maxLength]="250"
+                    [showCount]="true"
+                    hint="Auto-expands as you type"
+                  ></nova-textarea>
+
+                  <!-- Radio Group -->
+                  <nova-radio-group
+                    label="Notification Preferences"
+                    [options]="notificationOptions"
+                    [formControl]="notificationControl"
+                    orientation="horizontal"
+                  ></nova-radio-group>
+
+                  <!-- Switch -->
+                  <div class="demo-form-switches">
+                    <nova-switch
+                      label="Receive product updates & changelog emails"
+                      [formControl]="emailUpdatesControl"
+                      size="md"
+                    ></nova-switch>
+                  </div>
+
+                  <!-- Checkbox with Required validator -->
+                  <nova-checkbox
+                    label="I agree to the Nova UI Terms of Service and Code of Conduct"
+                    [formControl]="termsControl"
+                    [required]="true"
+                    [error]="termsControl.invalid && termsControl.touched ? 'You must accept the terms to continue' : undefined"
+                  ></nova-checkbox>
+
+                  <nova-button
+                    variant="primary"
+                    size="md"
+                    type="submit"
+                    [fullWidth]="true"
+                    [disabled]="userProfileForm.invalid"
+                  >
+                    Save Profile
+                  </nova-button>
+                </form>
+              </nova-card-content>
+            </nova-card>
+
+            <!-- Live Reactive Form State Monitor -->
+            <nova-card variant="outlined" padding="md">
+              <nova-card-header>
+                <nova-card-title>Live Reactive State Monitor</nova-card-title>
+                <nova-card-description>ControlValueAccessor two-way data streaming</nova-card-description>
+              </nova-card-header>
+
+              <nova-card-content>
+                <div class="demo-state-box">
+                  <p>
+                    <strong>Form Status:</strong>
+                    <nova-badge [variant]="userProfileForm.valid ? 'success' : 'danger'" size="sm">
+                      {{ userProfileForm.valid ? 'VALID' : 'INVALID' }}
+                    </nova-badge>
+                  </p>
+                  <p><strong>Dirty:</strong> {{ userProfileForm.dirty }} | <strong>Touched:</strong> {{ userProfileForm.touched }}</p>
+                  <p><strong>Form Values:</strong></p>
+                  <pre class="demo-json">{{ userProfileForm.value | json }}</pre>
+                </div>
+
+                <!-- Standalone Form Controls Showcase -->
+                <div class="demo-standalone-section">
+                  <h3 class="demo-subsection__title">Standalone Controls Preview</h3>
+
+                  <p class="demo-caption"><strong>Tri-State Checkbox (Indeterminate):</strong></p>
+                  <div class="demo-row demo-row--align-center">
+                    <nova-checkbox
+                      label="Parent Select All"
+                      [checked]="parentChecked"
+                      [indeterminate]="parentIndeterminate"
+                      (change)="toggleParent($event)"
+                    ></nova-checkbox>
+                    <nova-button variant="outline" size="sm" (click)="cycleIndeterminate()">
+                      Cycle State
+                    </nova-button>
+                  </div>
+
+                  <p class="demo-caption"><strong>Switch Sizes:</strong></p>
+                  <div class="demo-row demo-row--align-center">
+                    <nova-switch label="Small" size="sm" [checked]="true"></nova-switch>
+                    <nova-switch label="Medium" size="md" [checked]="true"></nova-switch>
+                    <nova-switch label="Large" size="lg" [checked]="true"></nova-switch>
+                  </div>
+                </div>
+              </nova-card-content>
+            </nova-card>
           </div>
         </section>
 
-        <!-- 2. Badge Components -->
-        <section class="demo-section">
-          <h2 class="demo-section__title">2. Badges</h2>
-          <p class="demo-section__desc">Status indicators and pill tags with high-contrast color palettes.</p>
-
-          <div class="demo-row">
-            <nova-badge variant="primary" size="sm">Primary SM</nova-badge>
-            <nova-badge variant="primary" size="md">Primary MD</nova-badge>
-            <nova-badge variant="primary" size="lg">Primary LG</nova-badge>
-            <nova-badge variant="secondary">Secondary</nova-badge>
-            <nova-badge variant="success">Active</nova-badge>
-            <nova-badge variant="warning">Pending</nova-badge>
-            <nova-badge variant="danger">Failed</nova-badge>
-            <nova-badge variant="outline">Outline</nova-badge>
-            <nova-badge variant="ghost">Ghost</nova-badge>
-          </div>
-        </section>
-
-        <!-- 3. Button Components -->
+        <!-- 2. Buttons -->
         <section class="demo-section">
           <div class="demo-section__header">
             <div>
-              <h2 class="demo-section__title">3. Buttons</h2>
-              <p class="demo-section__desc">Variants, sizing scale, micro-animations, and asynchronous loading states.</p>
+              <h2 class="demo-section__title">2. Buttons (Milestone 2)</h2>
+              <p class="demo-section__desc">Variants, sizes, micro-animations, and asynchronous loading states.</p>
             </div>
             <nova-button variant="secondary" size="sm" (click)="toggleLoading()">
               Toggle Loading ({{ isLoading ? 'ON' : 'OFF' }})
             </nova-button>
           </div>
 
-          <h3 class="demo-subsection__title">Variants</h3>
           <div class="demo-row">
             <nova-button variant="primary" [loading]="isLoading">Primary</nova-button>
             <nova-button variant="secondary" [loading]="isLoading">Secondary</nova-button>
@@ -135,115 +259,53 @@ import {
             <nova-button variant="ghost" [loading]="isLoading">Ghost</nova-button>
             <nova-button variant="primary" [disabled]="true">Disabled</nova-button>
           </div>
+        </section>
 
-          <h3 class="demo-subsection__title">Sizes</h3>
-          <div class="demo-row demo-row--align-center">
-            <nova-button variant="primary" size="sm">Small (32px)</nova-button>
-            <nova-button variant="primary" size="md">Medium (40px)</nova-button>
-            <nova-button variant="primary" size="lg">Large (48px)</nova-button>
+        <!-- 3. Badges & Alerts -->
+        <section class="demo-section">
+          <h2 class="demo-section__title">3. Badges & Alerts (Milestone 2)</h2>
+          <div class="demo-row" style="margin-bottom: var(--nova-space-4);">
+            <nova-badge variant="primary">Primary</nova-badge>
+            <nova-badge variant="secondary">Secondary</nova-badge>
+            <nova-badge variant="success">Active</nova-badge>
+            <nova-badge variant="warning">Pending</nova-badge>
+            <nova-badge variant="danger">Failed</nova-badge>
+            <nova-badge variant="outline">Outline</nova-badge>
+            <nova-badge variant="ghost">Ghost</nova-badge>
+          </div>
+
+          <div class="demo-grid demo-grid--col1">
+            <nova-alert variant="success" [dismissible]="true">
+              <nova-alert-title>Milestone 3 Verification</nova-alert-title>
+              <nova-alert-description>All 10 Nova UI components successfully compiled and running live!</nova-alert-description>
+            </nova-alert>
           </div>
         </section>
 
-        <!-- 4. Input & Reactive Forms -->
+        <!-- 4. Cards -->
         <section class="demo-section">
-          <h2 class="demo-section__title">4. Inputs & Reactive Forms</h2>
-          <p class="demo-section__desc">Full ControlValueAccessor implementation binding directly to Angular Reactive Forms.</p>
-
-          <div class="demo-grid demo-grid--2col">
-            <!-- Form Card -->
-            <nova-card variant="elevated" padding="md">
-              <nova-card-header>
-                <nova-card-title>User Registration</nova-card-title>
-                <nova-card-description>Try entering values to see real-time Reactive Forms synchronization.</nova-card-description>
-              </nova-card-header>
-
-              <nova-card-content>
-                <form [formGroup]="testForm" (ngSubmit)="onSubmit()" class="demo-form">
-                  <nova-input
-                    label="Full Name"
-                    placeholder="Jane Doe"
-                    [formControl]="nameControl"
-                    [required]="true"
-                    hint="Your legal name as it appears on documents"
-                  ></nova-input>
-
-                  <nova-input
-                    label="Email Address"
-                    type="email"
-                    placeholder="jane@example.com"
-                    [formControl]="emailControl"
-                    [required]="true"
-                    [error]="emailControl.invalid && emailControl.touched ? 'Please enter a valid email address' : undefined"
-                  ></nova-input>
-
-                  <nova-input
-                    label="Password"
-                    type="password"
-                    placeholder="••••••••"
-                    [formControl]="passwordControl"
-                    [required]="true"
-                    hint="At least 6 characters required"
-                  ></nova-input>
-
-                  <nova-button
-                    variant="primary"
-                    size="md"
-                    type="submit"
-                    [fullWidth]="true"
-                    [disabled]="testForm.invalid"
-                  >
-                    Submit Form
-                  </nova-button>
-                </form>
-              </nova-card-content>
-            </nova-card>
-
-            <!-- Live Form State Card -->
-            <nova-card variant="outlined" padding="md">
-              <nova-card-header>
-                <nova-card-title>Live Reactive Form State</nova-card-title>
-                <nova-card-description>Real-time updates via ControlValueAccessor</nova-card-description>
-              </nova-card-header>
-
-              <nova-card-content>
-                <div class="demo-state-box">
-                  <p><strong>Valid:</strong> <nova-badge [variant]="testForm.valid ? 'success' : 'danger'" size="sm">{{ testForm.valid ? 'VALID' : 'INVALID' }}</nova-badge></p>
-                  <p><strong>Touched:</strong> {{ testForm.touched }}</p>
-                  <p><strong>Form Values:</strong></p>
-                  <pre class="demo-json">{{ testForm.value | json }}</pre>
-                </div>
-              </nova-card-content>
-            </nova-card>
-          </div>
-        </section>
-
-        <!-- 5. Cards -->
-        <section class="demo-section">
-          <h2 class="demo-section__title">5. Cards</h2>
-          <p class="demo-section__desc">Structured content containers supporting elevated, outlined, and flat visual variants.</p>
-
+          <h2 class="demo-section__title">4. Cards (Milestone 2)</h2>
           <div class="demo-grid demo-grid--3col">
             <nova-card variant="elevated" padding="md">
               <nova-card-header>
                 <nova-card-title>Elevated Card</nova-card-title>
-                <nova-card-description>Box-shadow elevation for hierarchy</nova-card-description>
+                <nova-card-description>Box-shadow elevation</nova-card-description>
               </nova-card-header>
               <nova-card-content>
-                <p>Features subtle drop shadow and border according to the design token elevation scale.</p>
+                <p>Features drop shadow and border according to design tokens.</p>
               </nova-card-content>
               <nova-card-footer>
                 <nova-button variant="primary" size="sm">Action</nova-button>
-                <nova-button variant="ghost" size="sm">Cancel</nova-button>
               </nova-card-footer>
             </nova-card>
 
             <nova-card variant="outlined" padding="md">
               <nova-card-header>
                 <nova-card-title>Outlined Card</nova-card-title>
-                <nova-card-description>Clean border, zero elevation</nova-card-description>
+                <nova-card-description>Clean border, flat</nova-card-description>
               </nova-card-header>
               <nova-card-content>
-                <p>Perfect for flat interface layouts where borders provide clear visual boundaries.</p>
+                <p>Clean border with zero drop shadow for minimalist interfaces.</p>
               </nova-card-content>
               <nova-card-footer>
                 <nova-button variant="outline" size="sm">Details</nova-button>
@@ -253,13 +315,13 @@ import {
             <nova-card variant="flat" padding="md">
               <nova-card-header>
                 <nova-card-title>Flat Card</nova-card-title>
-                <nova-card-description>Muted surface background</nova-card-description>
+                <nova-card-description>Muted surface</nova-card-description>
               </nova-card-header>
               <nova-card-content>
-                <p>Blends seamlessly into secondary container regions or dashboard sidebars.</p>
+                <p>Blends into container regions with muted background.</p>
               </nova-card-content>
               <nova-card-footer>
-                <nova-badge variant="secondary" size="sm">Informational</nova-badge>
+                <nova-badge variant="secondary" size="sm">Tag</nova-badge>
               </nova-card-footer>
             </nova-card>
           </div>
@@ -331,6 +393,11 @@ import {
       color: var(--nova-color-text-muted);
       margin: var(--nova-space-4) 0 var(--nova-space-2);
     }
+    .demo-caption {
+      font-size: var(--nova-text-xs);
+      color: var(--nova-color-text-secondary);
+      margin: var(--nova-space-3) 0 var(--nova-space-1-5);
+    }
     .demo-row {
       display: flex;
       flex-wrap: wrap;
@@ -347,7 +414,7 @@ import {
       grid-template-columns: 1fr;
     }
     .demo-grid--2col {
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     }
     .demo-grid--3col {
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -356,6 +423,12 @@ import {
       display: flex;
       flex-direction: column;
       gap: var(--nova-space-4);
+    }
+    .demo-form-switches {
+      display: flex;
+      flex-direction: column;
+      gap: var(--nova-space-2);
+      padding: var(--nova-space-1) 0;
     }
     .demo-state-box {
       background-color: var(--nova-color-muted);
@@ -375,21 +448,68 @@ import {
       overflow-x: auto;
       margin: 0;
     }
+    .demo-standalone-section {
+      margin-top: var(--nova-space-6);
+      border-top: 1px solid var(--nova-color-border);
+      padding-top: var(--nova-space-4);
+    }
   `],
 })
 export class AppComponent {
   currentTheme: 'light' | 'dark' = 'light';
   isLoading = false;
 
-  nameControl = new FormControl('', [Validators.required]);
-  emailControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
+  // Tri-state checkbox demo state
+  parentChecked = false;
+  parentIndeterminate = true;
 
-  testForm = new FormGroup({
+  // Form Controls
+  nameControl = new FormControl('Shoriful Habib', [Validators.required]);
+  emailControl = new FormControl('shoriful@example.com', [Validators.required, Validators.email]);
+  countryControl = new FormControl('us', [Validators.required]);
+  skillsControl = new FormControl(['angular', 'ts']);
+  bioControl = new FormControl(
+    'Lead architect building cross-framework design systems with Angular and tokens.'
+  );
+  notificationControl = new FormControl('all');
+  emailUpdatesControl = new FormControl(true);
+  termsControl = new FormControl(true, [Validators.requiredTrue]);
+
+  userProfileForm = new FormGroup({
     name: this.nameControl,
     email: this.emailControl,
-    password: this.passwordControl,
+    country: this.countryControl,
+    skills: this.skillsControl,
+    bio: this.bioControl,
+    notifications: this.notificationControl,
+    emailUpdates: this.emailUpdatesControl,
+    terms: this.termsControl,
   });
+
+  // Options
+  countryOptions = [
+    { code: 'us', name: 'United States' },
+    { code: 'ca', name: 'Canada' },
+    { code: 'de', name: 'Germany' },
+    { code: 'jp', name: 'Japan' },
+    { code: 'uk', name: 'United Kingdom' },
+    { code: 'au', name: 'Australia' },
+  ];
+
+  skillOptions = [
+    { value: 'angular', label: 'Angular' },
+    { value: 'react', label: 'React' },
+    { value: 'vue', label: 'Vue.js' },
+    { value: 'svelte', label: 'Svelte' },
+    { value: 'ts', label: 'TypeScript' },
+    { value: 'tailwind', label: 'Tailwind CSS' },
+  ];
+
+  notificationOptions = [
+    { value: 'all', label: 'All activity' },
+    { value: 'mentions', label: 'Mentions only' },
+    { value: 'none', label: 'Mute all' },
+  ];
 
   toggleTheme(): void {
     this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
@@ -404,9 +524,27 @@ export class AppComponent {
     console.log(`Alert ${tag} dismissed`);
   }
 
+  toggleParent(checked: boolean): void {
+    this.parentChecked = checked;
+    this.parentIndeterminate = false;
+  }
+
+  cycleIndeterminate(): void {
+    if (!this.parentChecked && this.parentIndeterminate) {
+      this.parentChecked = true;
+      this.parentIndeterminate = false;
+    } else if (this.parentChecked && !this.parentIndeterminate) {
+      this.parentChecked = false;
+      this.parentIndeterminate = false;
+    } else {
+      this.parentChecked = false;
+      this.parentIndeterminate = true;
+    }
+  }
+
   onSubmit(): void {
-    if (this.testForm.valid) {
-      alert(`Form Submitted successfully!\n${JSON.stringify(this.testForm.value, null, 2)}`);
+    if (this.userProfileForm.valid) {
+      alert(`Profile Saved Successfully!\n${JSON.stringify(this.userProfileForm.value, null, 2)}`);
     }
   }
 }

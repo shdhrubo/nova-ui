@@ -1,0 +1,88 @@
+/**
+ * Nova UI — Checkbox Component Styles
+ *
+ * Implements @layer nova.components for boolean and indeterminate selectors.
+ */
+@layer nova.components {
+  .nova-checkbox-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nova-space-2);
+    font-family: var(--nova-font-sans);
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .nova-checkbox-wrapper--disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .nova-checkbox-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .nova-checkbox-box {
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+    border: 1px solid var(--nova-color-border);
+    border-radius: var(--nova-radius-sm);
+    background-color: var(--nova-color-surface);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--nova-color-primary-foreground);
+    flex-shrink: 0;
+    transition:
+      background-color var(--nova-transition-fast),
+      border-color var(--nova-transition-fast),
+      box-shadow var(--nova-transition-fast);
+  }
+
+  .nova-checkbox-wrapper:hover:not(.nova-checkbox-wrapper--disabled) .nova-checkbox-box {
+    border-color: var(--nova-color-border-hover);
+  }
+
+  .nova-checkbox-wrapper:focus-within .nova-checkbox-box,
+  .nova-checkbox-box--focused {
+    outline: var(--nova-ring-width) solid var(--nova-color-border-focus);
+    outline-offset: var(--nova-ring-offset);
+  }
+
+  .nova-checkbox-box--checked,
+  .nova-checkbox-box--indeterminate {
+    background-color: var(--nova-color-primary);
+    border-color: var(--nova-color-primary);
+  }
+
+  .nova-checkbox-box svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .nova-checkbox-label {
+    font-size: var(--nova-text-sm);
+    color: var(--nova-color-text);
+    line-height: 1.4;
+  }
+
+  .nova-checkbox-hint {
+    font-size: var(--nova-text-xs);
+    color: var(--nova-color-text-muted);
+    margin-left: calc(18px + var(--nova-space-2));
+  }
+
+  .nova-checkbox-error {
+    font-size: var(--nova-text-xs);
+    color: var(--nova-color-danger);
+    margin-left: calc(18px + var(--nova-space-2));
+  }
+}

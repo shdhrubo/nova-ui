@@ -10,13 +10,13 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { generateId } from '@nova-ui/core';
+import { generateId } from '@nova-ui-library/core';
 import type {
-  NovaOrientation,
   NovaRadioOption,
   NovaRadioGroupProps,
   NovaRadioProps,
-} from '@nova-ui/core';
+  NovaOrientation,
+} from '@nova-ui-library/core';
 
 /**
  * NovaRadioComponent

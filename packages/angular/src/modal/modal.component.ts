@@ -14,8 +14,8 @@ import {
   booleanAttribute,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trapFocus, generateId } from '@nova-ui/core';
-import type { NovaSize, NovaModalProps } from '@nova-ui/core';
+import { trapFocus, generateId } from '@nova-ui-library/core';
+import type { NovaSize, NovaModalProps } from '@nova-ui-library/core';
 
 /**
  * NovaModalComponent

@@ -7,7 +7,7 @@ import {
   booleanAttribute,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import type { NovaStatus, NovaAlertProps } from '@nova-ui/core';
+import type { NovaStatus, NovaAlertProps } from '@nova-ui-library/core';
 
 /**
  * NovaAlertComponent

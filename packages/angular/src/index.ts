@@ -56,5 +56,5 @@ export type {
   NovaTabsProps,
   NovaSpinnerProps,
   NovaSkeletonProps,
-} from '@nova-ui/core';
+} from '@nova-ui-library/core';
 

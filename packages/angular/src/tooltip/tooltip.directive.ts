@@ -7,7 +7,7 @@ import {
   booleanAttribute,
   numberAttribute,
 } from '@angular/core';
-import type { NovaPlacement, NovaTooltipProps } from '@nova-ui/core';
+import type { NovaPlacement, NovaTooltipProps } from '@nova-ui-library/core';
 
 /**
  * NovaTooltipDirective

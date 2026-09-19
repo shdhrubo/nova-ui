@@ -9,7 +9,7 @@ import {
   booleanAttribute,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import type { NovaOrientation, NovaTabsProps } from '@nova-ui/core';
+import type { NovaOrientation, NovaTabsProps } from '@nova-ui-library/core';
 
 /**
  * NovaTabsComponent

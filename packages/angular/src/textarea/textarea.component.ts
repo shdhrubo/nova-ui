@@ -12,8 +12,8 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { generateId } from '@nova-ui/core';
-import type { NovaSize, NovaTextareaProps } from '@nova-ui/core';
+import { generateId } from '@nova-ui-library/core';
+import type { NovaSize, NovaTextareaProps } from '@nova-ui-library/core';
 
 /**
  * NovaTextareaComponent

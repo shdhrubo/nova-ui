@@ -11,8 +11,8 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { generateId } from '@nova-ui/core';
-import type { NovaSize, NovaSelectProps, NovaSelectOption } from '@nova-ui/core';
+import { generateId } from '@nova-ui-library/core';
+import type { NovaSize, NovaSelectProps, NovaSelectOption } from '@nova-ui-library/core';
 
 /**
  * NovaSelectComponent

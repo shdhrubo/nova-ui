@@ -5,7 +5,7 @@ import {
   booleanAttribute,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import type { NovaVariant, NovaSize, NovaButtonProps } from '@nova-ui/core';
+import type { NovaVariant, NovaSize, NovaButtonProps } from '@nova-ui-library/core';
 
 /**
  * NovaButtonComponent

@@ -4,7 +4,7 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import type { NovaVariant, NovaSize, NovaBadgeProps } from '@nova-ui/core';
+import type { NovaVariant, NovaSize, NovaBadgeProps } from '@nova-ui-library/core';
 
 /**
  * NovaBadgeComponent

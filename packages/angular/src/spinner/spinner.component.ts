@@ -4,7 +4,7 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import type { NovaSize, NovaSpinnerProps } from '@nova-ui/core';
+import type { NovaSize, NovaSpinnerProps } from '@nova-ui-library/core';
 
 /**
  * NovaSpinnerComponent

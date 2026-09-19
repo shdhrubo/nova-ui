@@ -10,8 +10,8 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { generateId } from '@nova-ui/core';
-import type { NovaCheckboxProps } from '@nova-ui/core';
+import { generateId } from '@nova-ui-library/core';
+import type { NovaCheckboxProps } from '@nova-ui-library/core';
 
 /**
  * NovaCheckboxComponent

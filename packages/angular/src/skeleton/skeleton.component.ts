@@ -4,7 +4,7 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import type { NovaSkeletonProps } from '@nova-ui/core';
+import type { NovaSkeletonProps } from '@nova-ui-library/core';
 
 /**
  * NovaSkeletonComponent

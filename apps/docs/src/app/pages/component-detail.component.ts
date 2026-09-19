@@ -42,7 +42,7 @@ import {
   // Milestone 5
   NovaSpinnerComponent,
   NovaSkeletonComponent,
-} from '@nova-ui/angular';
+} from '@nova-ui-library/angular';
 
 import { COMPONENTS_DATA, ComponentDoc } from '../data/components-data';
 import { CodeBlockComponent } from '../components/code-block.component';

@@ -30,7 +30,7 @@ import {
   NovaModalTitleComponent,
   NovaModalContentComponent,
   NovaModalFooterComponent,
-} from '@nova-ui/angular';
+} from '@nova-ui-library/angular';
 
 @Component({
   selector: 'docs-home',

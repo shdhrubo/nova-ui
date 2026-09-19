@@ -42,7 +42,7 @@ import {
   // Milestone 5
   NovaSpinnerComponent,
   NovaSkeletonComponent,
-} from '@nova-ui/angular';
+} from '@nova-ui-library/angular';
 
 @Component({
   selector: 'app-root',

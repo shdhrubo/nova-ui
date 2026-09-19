@@ -24,6 +24,10 @@ export * from './dropdown';
 export * from './tooltip';
 export * from './tabs';
 
+// Milestone 5 Feedback Components
+export * from './spinner';
+export * from './skeleton';
+
 // Re-export core types for convenience
 export type {
   NovaSize,
@@ -50,4 +54,7 @@ export type {
   NovaTooltipProps,
   NovaTabItem,
   NovaTabsProps,
+  NovaSpinnerProps,
+  NovaSkeletonProps,
 } from '@nova-ui/core';
+

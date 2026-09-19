@@ -338,3 +338,34 @@ export interface NovaSwitchProps {
   labelPosition?: 'left' | 'right';
 }
 
+// ============================================
+// Spinner
+// ============================================
+
+export interface NovaSpinnerProps {
+  /** Spinner size */
+  size?: NovaSize;
+  /** Color tone */
+  color?: 'primary' | 'secondary' | 'current' | 'inverse';
+  /** Accessible screen reader announcement */
+  label?: string;
+}
+
+// ============================================
+// Skeleton
+// ============================================
+
+export interface NovaSkeletonProps {
+  /** Shape variant */
+  variant?: 'text' | 'circular' | 'rectangular';
+  /** Explicit width */
+  width?: string;
+  /** Explicit height */
+  height?: string;
+  /** Animation style */
+  animation?: 'pulse' | 'wave' | 'none';
+  /** Custom border radius */
+  borderRadius?: string;
+}
+
+

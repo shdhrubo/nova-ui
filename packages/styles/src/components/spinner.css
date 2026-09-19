@@ -1,0 +1,84 @@
+/**
+ * Nova UI — Spinner Component Styles
+ *
+ * Implements @layer nova.components for indeterminate progress / loading rings.
+ */
+@layer nova.components {
+  .nova-spinner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    line-height: 1;
+    color: var(--nova-color-primary);
+  }
+
+  .nova-spinner__svg {
+    animation: nova-spin 0.85s linear infinite;
+    transform-origin: center center;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .nova-spinner__track {
+    opacity: 0.2;
+    stroke: currentColor;
+  }
+
+  .nova-spinner__circle {
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-dasharray: 80;
+    stroke-dashoffset: 60;
+  }
+
+  /* Sizes */
+  .nova-spinner--sm {
+    width: 16px;
+    height: 16px;
+  }
+
+  .nova-spinner--md {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nova-spinner--lg {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Colors */
+  .nova-spinner--primary {
+    color: var(--nova-color-primary);
+  }
+
+  .nova-spinner--secondary {
+    color: var(--nova-color-secondary);
+  }
+
+  .nova-spinner--current {
+    color: currentColor;
+  }
+
+  .nova-spinner--inverse {
+    color: var(--nova-color-background);
+  }
+}
+
+@keyframes nova-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nova-spinner__svg {
+    animation-duration: 2s;
+  }
+}

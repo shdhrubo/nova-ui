@@ -31,6 +31,8 @@ export type {
   NovaRadioProps,
   NovaRadioGroupProps,
   NovaSwitchProps,
+  NovaSpinnerProps,
+  NovaSkeletonProps,
 } from './types/components';
 
 // Accessibility

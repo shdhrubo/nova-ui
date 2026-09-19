@@ -1,0 +1,102 @@
+/**
+ * Nova UI — Skeleton Component Styles
+ *
+ * Implements @layer nova.components for content placeholder loading states.
+ */
+@layer nova.components {
+  .nova-skeleton {
+    display: block;
+    background-color: var(--nova-color-muted);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  /* Variants */
+  .nova-skeleton--text {
+    height: 1rem;
+    margin-bottom: var(--nova-space-2);
+    border-radius: var(--nova-radius-sm);
+  }
+
+  .nova-skeleton--text:last-child {
+    margin-bottom: 0;
+  }
+
+  .nova-skeleton--circular {
+    border-radius: var(--nova-radius-full);
+    flex-shrink: 0;
+  }
+
+  .nova-skeleton--rectangular {
+    border-radius: var(--nova-radius-md);
+  }
+
+  /* Animations */
+  .nova-skeleton--pulse {
+    animation: nova-skeleton-pulse 1.5s ease-in-out infinite;
+  }
+
+  .nova-skeleton--wave {
+    position: relative;
+  }
+
+  .nova-skeleton--wave::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    animation: nova-skeleton-wave 1.6s ease-in-out infinite;
+  }
+
+  [data-theme='dark'] .nova-skeleton--wave::after {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .nova-skeleton--none {
+    animation: none;
+  }
+}
+
+@keyframes nova-skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes nova-skeleton-wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nova-skeleton--pulse {
+    animation: none;
+  }
+
+  .nova-skeleton--wave::after {
+    animation: none;
+    display: none;
+  }
+}

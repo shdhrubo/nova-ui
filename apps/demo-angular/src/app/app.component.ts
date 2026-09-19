@@ -39,6 +39,9 @@ import {
   NovaTabTriggerComponent,
   NovaTabContentComponent,
   type NovaOrientation,
+  // Milestone 5
+  NovaSpinnerComponent,
+  NovaSkeletonComponent,
 } from '@nova-ui/angular';
 
 @Component({
@@ -83,6 +86,9 @@ import {
     NovaTabListComponent,
     NovaTabTriggerComponent,
     NovaTabContentComponent,
+    // Milestone 5
+    NovaSpinnerComponent,
+    NovaSkeletonComponent,
   ],
   template: `
     <div class="demo-layout">
@@ -97,7 +103,7 @@ import {
         </div>
 
         <div class="demo-header__actions">
-          <nova-badge variant="primary" size="md">Milestone 4 — 14 Components</nova-badge>
+          <nova-badge variant="primary" size="md">Milestone 5 — 16 Components</nova-badge>
           <nova-button
             variant="outline"
             size="sm"
@@ -113,16 +119,136 @@ import {
         <!-- Introduction Banner -->
         <section class="demo-section">
           <nova-alert variant="info" [dismissible]="true" (dismissed)="onAlertDismissed('intro')">
-            <nova-alert-title>Milestone 4: Interactive Components Active</nova-alert-title>
+            <nova-alert-title>Milestone 5: Feedback & Loading Components Active</nova-alert-title>
             <nova-alert-description>
-              Now featuring 14 components: Modal, Dropdown, Tooltip, Tabs + Form & Core suites!
+              Now featuring 16 components: Spinner, Skeleton + Modal, Dropdown, Tooltip, Tabs, Form & Core suites!
             </nova-alert-description>
           </nova-alert>
         </section>
 
-        <!-- SECTION 1: MILESTONE 4 INTERACTIVE COMPONENTS -->
+        <!-- SECTION 1: FEEDBACK & LOADING (MILESTONE 5) -->
         <section class="demo-section">
-          <h2 class="demo-section__title">1. Interactive Components (Milestone 4)</h2>
+          <div class="demo-section__header">
+            <div>
+              <h2 class="demo-section__title">1. Feedback & Loading Components (Milestone 5)</h2>
+              <p class="demo-section__desc">Circular SVG spinners and wave/pulse skeleton placeholders for asynchronous states.</p>
+            </div>
+            <nova-button variant="outline" size="sm" (click)="toggleDataLoaded()">
+              {{ isDataLoaded ? '🔄 Preview Skeleton Placeholders' : '✨ Preview Loaded State' }}
+            </nova-button>
+          </div>
+
+          <div class="demo-grid demo-grid--2col">
+            <!-- Spinners Card -->
+            <nova-card variant="elevated" padding="md">
+              <nova-card-header>
+                <nova-card-title>Accessible Spinners</nova-card-title>
+                <nova-card-description>ARIA status indicators with size, color, and contextual styles</nova-card-description>
+              </nova-card-header>
+
+              <nova-card-content>
+                <div class="demo-subsection" style="margin-top: 0; border-top: none; padding-top: 0;">
+                  <h4 class="demo-subsection__title">Sizes</h4>
+                  <div class="demo-row" style="align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <nova-spinner size="sm" label="Small spinner"></nova-spinner>
+                      <span class="demo-caption" style="margin: 0;">Small (16px)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <nova-spinner size="md" label="Medium spinner"></nova-spinner>
+                      <span class="demo-caption" style="margin: 0;">Medium (24px)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <nova-spinner size="lg" label="Large spinner"></nova-spinner>
+                      <span class="demo-caption" style="margin: 0;">Large (36px)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="demo-subsection">
+                  <h4 class="demo-subsection__title">Color Tones</h4>
+                  <div class="demo-row" style="align-items: center; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <nova-spinner color="primary" size="md"></nova-spinner>
+                      <span class="demo-caption" style="margin: 0;">Primary</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <nova-spinner color="secondary" size="md"></nova-spinner>
+                      <span class="demo-caption" style="margin: 0;">Secondary</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px; color: #10b981;">
+                      <nova-spinner color="current" size="md"></nova-spinner>
+                      <span class="demo-caption" style="margin: 0; color: #10b981;">Current (Success)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px; color: #f59e0b;">
+                      <nova-spinner color="current" size="md"></nova-spinner>
+                      <span class="demo-caption" style="margin: 0; color: #f59e0b;">Current (Warning)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="demo-subsection">
+                  <h4 class="demo-subsection__title">Inside Action Buttons</h4>
+                  <div class="demo-row">
+                    <nova-button variant="primary" size="md">
+                      <nova-spinner size="sm" color="inverse"></nova-spinner>
+                      Saving Changes...
+                    </nova-button>
+                    <nova-button variant="outline" size="md">
+                      <nova-spinner size="sm" color="primary"></nova-spinner>
+                      Syncing Database
+                    </nova-button>
+                  </div>
+                </div>
+              </nova-card-content>
+            </nova-card>
+
+            <!-- Skeletons Card -->
+            <nova-card variant="elevated" padding="md">
+              <nova-card-header>
+                <nova-card-title>Skeleton Shimmer Placeholders</nova-card-title>
+                <nova-card-description>Wave and pulse animation placeholders</nova-card-description>
+              </nova-card-header>
+
+              <nova-card-content>
+                <!-- Skeleton Preview State -->
+                <div *ngIf="!isDataLoaded" class="demo-skeleton-preview">
+                  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                    <nova-skeleton variant="circular" width="48px" height="48px" animation="wave"></nova-skeleton>
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
+                      <nova-skeleton variant="text" width="65%" animation="wave"></nova-skeleton>
+                      <nova-skeleton variant="text" width="40%" animation="wave"></nova-skeleton>
+                    </div>
+                  </div>
+                  <nova-skeleton variant="rectangular" width="100%" height="110px" animation="wave" style="margin-bottom: 1rem;"></nova-skeleton>
+                  <nova-skeleton variant="text" width="95%" animation="pulse"></nova-skeleton>
+                  <nova-skeleton variant="text" width="80%" animation="pulse"></nova-skeleton>
+                </div>
+
+                <!-- Loaded State -->
+                <div *ngIf="isDataLoaded" class="demo-skeleton-preview demo-skeleton-preview--loaded">
+                  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                    <div class="demo-avatar">🚀</div>
+                    <div>
+                      <h4 style="margin: 0; font-size: 1rem; font-weight: 600;">Nova UI Design System</h4>
+                      <span style="font-size: 0.8125rem; color: var(--nova-color-text-secondary);">&#64;nova-ui/angular &bull; v0.1.0</span>
+                    </div>
+                  </div>
+                  <div style="background: var(--nova-color-muted); border-radius: var(--nova-radius-md); padding: 1.25rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="margin: 0; font-weight: 600; color: var(--nova-color-primary);">✨ Component Suite Fully Synchronized</p>
+                  </div>
+                  <p style="margin: 0; font-size: 0.875rem; color: var(--nova-color-text-secondary); line-height: 1.5;">
+                    Complete suite of 16 accessible standalone components with design tokens, strict TypeScript, and WCAG AA compliance.
+                  </p>
+                </div>
+              </nova-card-content>
+            </nova-card>
+          </div>
+        </section>
+
+        <!-- SECTION 2: MILESTONE 4 INTERACTIVE COMPONENTS -->
+        <section class="demo-section">
+          <h2 class="demo-section__title">2. Interactive Components (Milestone 4)</h2>
           <p class="demo-section__desc">Focus-trapped dialogs, floating dropdown menus, directional tooltips, and keyboard-accessible tabs.</p>
 
           <div class="demo-grid demo-grid--2col">
@@ -276,9 +402,9 @@ import {
           </div>
         </section>
 
-        <!-- SECTION 2: FORM COMPONENTS SUITE (MILESTONE 3) -->
+        <!-- SECTION 3: FORM COMPONENTS SUITE (MILESTONE 3) -->
         <section class="demo-section">
-          <h2 class="demo-section__title">2. Form Components Suite (Milestone 3)</h2>
+          <h2 class="demo-section__title">3. Form Components Suite (Milestone 3)</h2>
           <p class="demo-section__desc">Full Reactive Forms ControlValueAccessor streaming across Textarea, Select, Checkbox, Radio, and Switch.</p>
 
           <div class="demo-grid demo-grid--2col">
@@ -396,11 +522,11 @@ import {
           </div>
         </section>
 
-        <!-- SECTION 3: BUTTONS & BADGES (MILESTONE 2) -->
+        <!-- SECTION 4: BUTTONS & BADGES (MILESTONE 2) -->
         <section class="demo-section">
           <div class="demo-section__header">
             <div>
-              <h2 class="demo-section__title">3. Buttons & Badges (Milestone 2)</h2>
+              <h2 class="demo-section__title">4. Buttons & Badges (Milestone 2)</h2>
               <p class="demo-section__desc">Variants, sizes, loading states, and status badges.</p>
             </div>
             <nova-button variant="secondary" size="sm" (click)="toggleLoading()">
@@ -599,11 +725,30 @@ import {
       overflow-x: auto;
       margin: 0;
     }
+    .demo-skeleton-preview {
+      padding: var(--nova-space-4);
+      background-color: var(--nova-color-card);
+      border: 1px solid var(--nova-color-border);
+      border-radius: var(--nova-radius-md);
+      min-height: 220px;
+    }
+    .demo-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--nova-radius-full);
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
   `],
 })
 export class AppComponent {
   currentTheme: 'light' | 'dark' = 'light';
   isLoading = false;
+  isDataLoaded = false;
 
   // Milestone 4 states
   isModalOpen = false;
@@ -663,6 +808,10 @@ export class AppComponent {
 
   toggleLoading(): void {
     this.isLoading = !this.isLoading;
+  }
+
+  toggleDataLoaded(): void {
+    this.isDataLoaded = !this.isDataLoaded;
   }
 
   onAlertDismissed(tag: string): void {

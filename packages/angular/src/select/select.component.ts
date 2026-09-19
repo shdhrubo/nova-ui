@@ -7,6 +7,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   booleanAttribute,
+  signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -196,7 +197,17 @@ export class NovaSelectComponent implements ControlValueAccessor, NovaSelectProp
   @Input() size: NovaSize = 'md';
 
   value: unknown = null;
-  isOpen = false;
+  private readonly _isOpen = signal(false);
+
+  get isOpen(): boolean {
+    return this._isOpen();
+  }
+
+  set isOpen(value: boolean) {
+    this._isOpen.set(value);
+    this.cdr.markForCheck();
+  }
+
   searchQuery = '';
   highlightedIndex = 0;
 
@@ -380,12 +391,14 @@ export class NovaSelectComponent implements ControlValueAccessor, NovaSelectProp
             this.highlightedIndex + 1,
             this.filteredOptions.length - 1
           );
+          this.cdr.markForCheck();
         }
         break;
       case 'ArrowUp':
         event.preventDefault();
         if (this.isOpen) {
           this.highlightedIndex = Math.max(this.highlightedIndex - 1, 0);
+          this.cdr.markForCheck();
         }
         break;
       case 'Escape':

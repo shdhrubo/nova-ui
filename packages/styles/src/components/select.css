@@ -4,6 +4,11 @@
  * Implements @layer nova.components for dropdown and multi-select.
  */
 @layer nova.components {
+  .nova-select-host {
+    display: block;
+    width: 100%;
+  }
+
   .nova-select-wrapper {
     display: flex;
     flex-direction: column;

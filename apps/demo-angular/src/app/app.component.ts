@@ -103,7 +103,7 @@ import {
         </div>
 
         <div class="demo-header__actions">
-          <nova-badge variant="primary" size="md">Milestone 5 — 16 Components</nova-badge>
+          <nova-badge variant="primary" size="md">Production Ready</nova-badge>
           <nova-button
             variant="outline"
             size="sm"
@@ -119,9 +119,9 @@ import {
         <!-- Introduction Banner -->
         <section class="demo-section">
           <nova-alert variant="info" [dismissible]="true" (dismissed)="onAlertDismissed('intro')">
-            <nova-alert-title>Milestone 5: Feedback & Loading Components Active</nova-alert-title>
+            <nova-alert-title>Components Active</nova-alert-title>
             <nova-alert-description>
-              Now featuring 16 components: Spinner, Skeleton + Modal, Dropdown, Tooltip, Tabs, Form & Core suites!
+              Featuring accessible standalone components: Spinner, Skeleton, Modal, Dropdown, Tooltip, Tabs, Form & Core suites!
             </nova-alert-description>
           </nova-alert>
         </section>
@@ -238,7 +238,7 @@ import {
                     <p style="margin: 0; font-weight: 600; color: var(--nova-color-primary);">✨ Component Suite Fully Synchronized</p>
                   </div>
                   <p style="margin: 0; font-size: 0.875rem; color: var(--nova-color-text-secondary); line-height: 1.5;">
-                    Complete suite of 16 accessible standalone components with design tokens, strict TypeScript, and WCAG AA compliance.
+                    Complete suite of accessible standalone components with design tokens, strict TypeScript, and WCAG AA compliance.
                   </p>
                 </div>
               </nova-card-content>

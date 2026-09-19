@@ -9,6 +9,8 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   booleanAttribute,
+  OnInit,
+  OnDestroy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -38,12 +40,22 @@ import { CommonModule } from '@angular/common';
   host: {
     'class': 'nova-dropdown',
   },
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NovaDropdownComponent {
   isOpen = false;
+  private menuComponent?: NovaDropdownMenuComponent;
 
-  constructor(private elementRef: ElementRef, private cdr: ChangeDetectorRef) {}
+  constructor(private elementRef: ElementRef, public cdr: ChangeDetectorRef) {}
+
+  registerMenu(menu: NovaDropdownMenuComponent): void {
+    this.menuComponent = menu;
+  }
+
+  unregisterMenu(menu: NovaDropdownMenuComponent): void {
+    if (this.menuComponent === menu) {
+      this.menuComponent = undefined;
+    }
+  }
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
@@ -60,17 +72,32 @@ export class NovaDropdownComponent {
   toggle(): void {
     this.isOpen = !this.isOpen;
     this.cdr.markForCheck();
+    this.menuComponent?.cdr.markForCheck();
+    try {
+      this.cdr.detectChanges();
+      this.menuComponent?.cdr.detectChanges();
+    } catch {}
   }
 
   open(): void {
     this.isOpen = true;
     this.cdr.markForCheck();
+    this.menuComponent?.cdr.markForCheck();
+    try {
+      this.cdr.detectChanges();
+      this.menuComponent?.cdr.detectChanges();
+    } catch {}
   }
 
   close(): void {
     if (this.isOpen) {
       this.isOpen = false;
       this.cdr.markForCheck();
+      this.menuComponent?.cdr.markForCheck();
+      try {
+        this.cdr.detectChanges();
+        this.menuComponent?.cdr.detectChanges();
+      } catch {}
     }
   }
 }
@@ -118,12 +145,25 @@ export class NovaDropdownTriggerDirective {
       <ng-content></ng-content>
     </div>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    'style': 'display: contents;',
+  },
 })
-export class NovaDropdownMenuComponent {
+export class NovaDropdownMenuComponent implements OnInit, OnDestroy {
   @Input() align: 'left' | 'right' = 'left';
 
-  constructor(public dropdown: NovaDropdownComponent) {}
+  constructor(
+    public dropdown: NovaDropdownComponent,
+    public cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit(): void {
+    this.dropdown.registerMenu(this);
+  }
+
+  ngOnDestroy(): void {
+    this.dropdown.unregisterMenu(this);
+  }
 }
 
 /**
@@ -164,6 +204,7 @@ export class NovaDropdownItemComponent {
 
   onClick(event: MouseEvent): void {
     if (this.disabled) return;
+    event.stopPropagation();
     this.action.emit();
     this.dropdown.close();
   }

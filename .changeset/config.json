@@ -3,7 +3,7 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [
-    ["@nova-ui/tokens", "@nova-ui/styles", "@nova-ui/core", "@nova-ui/angular"]
+    ["@nova-ui-library/tokens", "@nova-ui-library/styles", "@nova-ui-library/core", "@nova-ui-library/angular"]
   ],
   "linked": [],
   "access": "public",

@@ -1,5 +1,5 @@
 {
-  "name": "@nova-ui/angular",
+  "name": "@nova-ui-library/angular",
   "version": "0.0.1",
   "description": "Angular components for Nova UI",
   "license": "MIT",
@@ -46,8 +46,8 @@
     "@angular/forms": ">=17.0.0"
   },
   "dependencies": {
-    "@nova-ui/core": "*",
-    "@nova-ui/styles": "*"
+    "@nova-ui-library/core": "*",
+    "@nova-ui-library/styles": "*"
   },
   "sideEffects": false,
   "publishConfig": {

@@ -24,7 +24,10 @@
     "paths": {
       "@nova-ui/tokens": ["./packages/tokens/dist/index.d.ts"],
       "@nova-ui/core": ["./packages/core/dist/index.d.ts"],
-      "@nova-ui/angular": ["./packages/angular/dist/index.d.ts"]
+      "@nova-ui/angular": ["./packages/angular/dist/index.d.ts"],
+      "@nova-ui-library/tokens": ["./packages/tokens/dist/index.d.ts"],
+      "@nova-ui-library/core": ["./packages/core/dist/index.d.ts"],
+      "@nova-ui-library/angular": ["./packages/angular/dist/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "dist", "tmp"]

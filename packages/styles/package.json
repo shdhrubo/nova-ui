@@ -1,5 +1,5 @@
 {
-  "name": "@nova-ui/styles",
+  "name": "@nova-ui-library/styles",
   "version": "0.0.1",
   "description": "CSS architecture, themes, and utilities for Nova UI",
   "license": "MIT",

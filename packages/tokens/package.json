@@ -1,5 +1,5 @@
 {
-  "name": "@nova-ui/tokens",
+  "name": "@nova-ui-library/tokens",
   "version": "0.0.1",
   "description": "Design tokens for Nova UI — colors, spacing, typography, radius, shadows, breakpoints",
   "license": "MIT",

@@ -1,5 +1,5 @@
 {
-  "name": "@nova-ui/core",
+  "name": "@nova-ui-library/core",
   "version": "0.0.1",
   "description": "Framework-independent types, behavior, and accessibility utilities for Nova UI",
   "license": "MIT",
@@ -40,7 +40,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@nova-ui/tokens": "*"
+    "@nova-ui-library/tokens": "*"
   },
   "sideEffects": false,
   "publishConfig": {

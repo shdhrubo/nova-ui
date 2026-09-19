@@ -32,11 +32,11 @@ Nova UI is a production-ready, accessible, and customizable UI component library
 
 | Package | Description | Status | Version |
 | :--- | :--- | :---: | :---: |
-| **`@nova-ui/tokens`** | Design tokens (JSON, TS tokens, CSS custom properties) | ✅ Stable | `0.1.0` |
-| **`@nova-ui/styles`** | CSS architecture (`@layer nova.reset, nova.tokens, nova.components, nova.utilities`) | ✅ Stable | `0.1.0` |
-| **`@nova-ui/core`** | Framework-agnostic contracts, types, and accessibility utilities | ✅ Stable | `0.1.0` |
-| **`@nova-ui/angular`** | 16 Angular standalone components | ✅ Stable | `0.1.0` |
-| **`@nova-ui/react`** | React component adapters | 📋 Planned | — |
+| **`@nova-ui-library/tokens`** | Design tokens (JSON, TS tokens, CSS custom properties) | ✅ Published | `0.0.1` |
+| **`@nova-ui-library/styles`** | CSS architecture (`@layer nova.reset, nova.tokens, nova.components, nova.utilities`) | ✅ Published | `0.0.1` |
+| **`@nova-ui-library/core`** | Framework-agnostic contracts, types, and accessibility utilities | ✅ Published | `0.0.1` |
+| **`@nova-ui-library/angular`** | 16 Angular standalone components | ✅ Published | `0.0.1` |
+| **`@nova-ui-library/react`** | React component adapters | 📋 Planned | — |
 
 ---
 
@@ -68,7 +68,7 @@ Nova UI is a production-ready, accessible, and customizable UI component library
 ### 1. Installation
 
 ```bash
-npm install @nova-ui/angular @nova-ui/styles @nova-ui/tokens
+npm install @nova-ui-library/angular @nova-ui-library/styles @nova-ui-library/tokens
 ```
 
 ### 2. Import Styles
@@ -77,7 +77,7 @@ Include Nova UI styles in your root `angular.json` or `styles.css`:
 
 ```css
 /* Import in your global stylesheet */
-@import '@nova-ui/styles';
+@import '@nova-ui-library/styles';
 ```
 
 ### 3. Usage in Angular Component
@@ -88,7 +88,7 @@ import {
   NovaButtonComponent, 
   NovaBadgeComponent, 
   NovaInputComponent 
-} from '@nova-ui/angular';
+} from '@nova-ui-library/angular';
 
 @Component({
   selector: 'app-root',

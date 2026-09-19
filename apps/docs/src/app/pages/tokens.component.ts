@@ -104,7 +104,7 @@ import { CommonModule } from '@angular/common';
 
         <section>
           <h2 style="font-size: var(--nova-text-xl); font-weight: 700; margin: 0 0 var(--nova-space-3);">
-            Border Radii
+            Border Radius
           </h2>
           <div class="docs-table-wrapper">
             <table class="docs-table">

@@ -38,7 +38,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M2',
     description: 'Interactive button component supporting 7 visual variants, 3 sizes, full-width mode, and an accessible loading state.',
     angularSelector: 'nova-button, button[nova-button], a[nova-button]',
-    angularImport: "import { NovaButtonComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaButtonComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'variant', type: "'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'outline' | 'ghost'", defaultValue: "'primary'", description: 'Visual appearance style' },
       { name: 'size', type: "'sm' | 'md' | 'lg'", defaultValue: "'md'", description: 'Button dimensions and typography sizing' },
@@ -76,7 +76,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M2',
     description: 'Form text input fully wired with Angular Reactive Forms ControlValueAccessor, validation error messaging, and helper hints.',
     angularSelector: 'nova-input',
-    angularImport: "import { NovaInputComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaInputComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'label', type: 'string', description: 'Accessible text label above the input' },
       { name: 'placeholder', type: 'string', defaultValue: "''", description: 'Placeholder hint text' },
@@ -112,7 +112,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M2',
     description: 'Versatile compound container component with composable header, title, description, content, and footer slots.',
     angularSelector: 'nova-card',
-    angularImport: "import { NovaCardComponent, NovaCardHeaderComponent, NovaCardTitleComponent, NovaCardDescriptionComponent, NovaCardContentComponent, NovaCardFooterComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaCardComponent, NovaCardHeaderComponent, NovaCardTitleComponent, NovaCardDescriptionComponent, NovaCardContentComponent, NovaCardFooterComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'variant', type: "'elevated' | 'outlined' | 'flat'", defaultValue: "'elevated'", description: 'Border and shadow treatment' },
       { name: 'padding', type: "'sm' | 'md' | 'lg'", defaultValue: "'md'", description: 'Internal whitespace padding' },
@@ -146,7 +146,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M2',
     description: 'Compact tag and status indicator pill used for counts, tags, and status categories.',
     angularSelector: 'nova-badge, span[nova-badge]',
-    angularImport: "import { NovaBadgeComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaBadgeComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'variant', type: "'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'outline' | 'ghost'", defaultValue: "'primary'", description: 'Color palette variant' },
       { name: 'size', type: "'sm' | 'md' | 'lg'", defaultValue: "'md'", description: 'Pill sizing' },
@@ -172,7 +172,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M2',
     description: 'Prominent contextual banners with embedded crisp SVG status icons and optional dismiss action.',
     angularSelector: 'nova-alert',
-    angularImport: "import { NovaAlertComponent, NovaAlertTitleComponent, NovaAlertDescriptionComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaAlertComponent, NovaAlertTitleComponent, NovaAlertDescriptionComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'variant', type: "'info' | 'success' | 'warning' | 'danger'", defaultValue: "'info'", description: 'Semantic status theme' },
       { name: 'dismissible', type: 'boolean', defaultValue: 'false', description: 'Shows an accessible close button' },
@@ -203,7 +203,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M3',
     description: 'Multi-line text input with automatic height resizing, character counter, and Reactive Forms ControlValueAccessor.',
     angularSelector: 'nova-textarea',
-    angularImport: "import { NovaTextareaComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaTextareaComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'label', type: 'string', description: 'Label text above textarea' },
       { name: 'rows', type: 'number', defaultValue: '3', description: 'Initial line rows' },
@@ -238,7 +238,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M3',
     description: 'Custom accessible select dropdown supporting single & multi-selection chips, live search filtering, clearable value, and arrow-key navigation.',
     angularSelector: 'nova-select',
-    angularImport: "import { NovaSelectComponent, NovaSelectOption } from '@nova-ui/angular';",
+    angularImport: "import { NovaSelectComponent, NovaSelectOption } from '@nova-ui-library/angular';",
     props: [
       { name: 'options', type: 'NovaSelectOption[]', required: true, description: 'List of { value, label, disabled? } items' },
       { name: 'multiple', type: 'boolean', defaultValue: 'false', description: 'Enables multiple selection with badge chips' },
@@ -277,7 +277,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M3',
     description: 'Form checkbox control supporting standard checked state and indeterminate tri-state with custom SVG icons.',
     angularSelector: 'nova-checkbox',
-    angularImport: "import { NovaCheckboxComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaCheckboxComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'label', type: 'string', description: 'Text label accompanying the checkbox' },
       { name: 'checked', type: 'boolean', defaultValue: 'false', description: 'Checked state' },
@@ -308,7 +308,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M3',
     description: 'Single-choice radio controls with arrow-key keyboard cycling, and horizontal or vertical layouts.',
     angularSelector: 'nova-radio-group, nova-radio',
-    angularImport: "import { NovaRadioGroupComponent, NovaRadioComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaRadioGroupComponent, NovaRadioComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'options', type: 'NovaRadioOption[]', description: 'Option array for data-driven radio groups' },
       { name: 'orientation', type: "'horizontal' | 'vertical'", defaultValue: "'vertical'", description: 'Layout axis direction' },
@@ -338,7 +338,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M3',
     description: 'Smooth sliding toggle switch for boolean preferences, available in 3 sizes with flexible label positioning.',
     angularSelector: 'nova-switch',
-    angularImport: "import { NovaSwitchComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaSwitchComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'label', type: 'string', description: 'Accompanying text label' },
       { name: 'size', type: "'sm' | 'md' | 'lg'", defaultValue: "'md'", description: 'Dimensions of track and sliding thumb' },
@@ -370,7 +370,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M4',
     description: 'Focus-trapped dialog overlay with backdrop blur, Escape dismissal, body scroll locking, and 4 size variations.',
     angularSelector: 'nova-modal',
-    angularImport: "import { NovaModalComponent, NovaModalHeaderComponent, NovaModalTitleComponent, NovaModalContentComponent, NovaModalFooterComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaModalComponent, NovaModalHeaderComponent, NovaModalTitleComponent, NovaModalContentComponent, NovaModalFooterComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'open', type: 'boolean', defaultValue: 'false', description: 'Controls modal open/close visibility' },
       { name: 'title', type: 'string', description: 'Modal title text' },
@@ -410,7 +410,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M4',
     description: 'Contextual popover menu featuring trigger directive, item actions, dividers, alignment options, and click-outside dismissal.',
     angularSelector: 'nova-dropdown',
-    angularImport: "import { NovaDropdownComponent, NovaDropdownTriggerDirective, NovaDropdownMenuComponent, NovaDropdownItemComponent, NovaDropdownDividerComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaDropdownComponent, NovaDropdownTriggerDirective, NovaDropdownMenuComponent, NovaDropdownItemComponent, NovaDropdownDividerComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'align', type: "'left' | 'right'", defaultValue: "'left'", description: 'Horizontal alignment of the dropdown popover' },
     ],
@@ -442,7 +442,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M4',
     description: 'High-contrast directional popup hints triggering on both mouse hover and keyboard focus events.',
     angularSelector: '[novaTooltip]',
-    angularImport: "import { NovaTooltipDirective } from '@nova-ui/angular';",
+    angularImport: "import { NovaTooltipDirective } from '@nova-ui-library/angular';",
     props: [
       { name: 'novaTooltip', type: 'string', required: true, description: 'Tooltip message text' },
       { name: 'tooltipPlacement', type: "'top' | 'bottom' | 'left' | 'right'", defaultValue: "'top'", description: 'Position relative to target element' },
@@ -468,7 +468,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M4',
     description: 'WAI-ARIA compliant tabbed navigation system supporting horizontal and vertical orientations with arrow-key keyboard cycling.',
     angularSelector: 'nova-tabs',
-    angularImport: "import { NovaTabsComponent, NovaTabListComponent, NovaTabTriggerComponent, NovaTabContentComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaTabsComponent, NovaTabListComponent, NovaTabTriggerComponent, NovaTabContentComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'activeTab', type: 'string', description: 'Two-way bound active tab identifier [(activeTab)]' },
       { name: 'orientation', type: "'horizontal' | 'vertical'", defaultValue: "'horizontal'", description: 'Tab list alignment direction' },
@@ -507,7 +507,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M5',
     description: 'Circular SVG loading ring with smooth GPU rotation, 3 sizes, color variations, and screen-reader accessibility.',
     angularSelector: 'nova-spinner',
-    angularImport: "import { NovaSpinnerComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaSpinnerComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'size', type: "'sm' | 'md' | 'lg'", defaultValue: "'md'", description: 'Diameter dimensions (16px, 24px, 36px)' },
       { name: 'color', type: "'primary' | 'secondary' | 'current' | 'inverse'", defaultValue: "'primary'", description: 'Color tone. "current" inherits text/icon color.' },
@@ -538,7 +538,7 @@ export const COMPONENTS_DATA: ComponentDoc[] = [
     milestone: 'M5',
     description: 'Animated shimmer placeholders for typography, circular avatars, and media blocks during asynchronous data loading.',
     angularSelector: 'nova-skeleton',
-    angularImport: "import { NovaSkeletonComponent } from '@nova-ui/angular';",
+    angularImport: "import { NovaSkeletonComponent } from '@nova-ui-library/angular';",
     props: [
       { name: 'variant', type: "'text' | 'circular' | 'rectangular'", defaultValue: "'text'", description: 'Shape geometry' },
       { name: 'width', type: 'string', description: 'Explicit CSS width (e.g. "80%", "48px")' },

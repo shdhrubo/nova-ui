@@ -83,10 +83,10 @@ import { CodeBlockComponent } from '../components/code-block.component';
   `,
 })
 export class GettingStartedComponent {
-  installCode = `npm install @nova-ui/angular @nova-ui/styles @nova-ui/tokens @nova-ui/core`;
+  installCode = `npm install @nova-ui-library/angular @nova-ui-library/styles @nova-ui-library/tokens`;
 
   importStylesCode = `/* src/styles.css */
-@import '@nova-ui/styles';`;
+@import '@nova-ui-library/styles';`;
 
   standaloneUsageCode = `import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -97,7 +97,7 @@ import {
   NovaCardHeaderComponent,
   NovaCardTitleComponent,
   NovaCardContentComponent,
-} from '@nova-ui/angular';
+} from '@nova-ui-library/angular';
 
 @Component({
   selector: 'app-profile',

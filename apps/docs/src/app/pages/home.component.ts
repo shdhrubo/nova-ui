@@ -94,7 +94,7 @@ import {
             Explore Components
           </a>
           <div class="docs-hero-quick-install">
-            <code>npm i &#64;nova-ui/angular</code>
+            <code>npm i &#64;nova-ui-library/angular</code>
             <button
               type="button"
               class="docs-hero-copy-btn"
@@ -676,7 +676,7 @@ import {
           </p>
 
           <div class="docs-install-box">
-            <code>npm install &#64;nova-ui/core &#64;nova-ui/tokens &#64;nova-ui/angular</code>
+            <code>npm install &#64;nova-ui-library/angular &#64;nova-ui-library/styles &#64;nova-ui-library/tokens</code>
             <button
               type="button"
               class="docs-install-copy-btn"
@@ -708,7 +708,7 @@ import {
       >
         <nova-modal-content>
           <p style="margin-top: 0; color: var(--nova-color-text);">
-            This is a fully-featured, focus-trapped dialog powered by <strong>&#64;nova-ui/angular</strong>.
+            This is a fully-featured, focus-trapped dialog powered by <strong>&#64;nova-ui-library/angular</strong>.
           </p>
           <nova-alert variant="success">
             <nova-alert-title>WCAG 2.1 AA Compliant</nova-alert-title>
@@ -786,7 +786,7 @@ export class HomeComponent {
   }
 
   copyHeroCommand(): void {
-    navigator.clipboard.writeText('npm i @nova-ui/angular');
+    navigator.clipboard.writeText('npm i @nova-ui-library/angular');
     this.heroCopied = true;
     setTimeout(() => {
       this.heroCopied = false;
@@ -794,7 +794,7 @@ export class HomeComponent {
   }
 
   copyBottomCommand(): void {
-    navigator.clipboard.writeText('npm install @nova-ui/core @nova-ui/tokens @nova-ui/angular');
+    navigator.clipboard.writeText('npm install @nova-ui-library/angular @nova-ui-library/styles @nova-ui-library/tokens');
     this.bottomCopied = true;
     setTimeout(() => {
       this.bottomCopied = false;

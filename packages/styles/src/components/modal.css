@@ -1,0 +1,130 @@
+/**
+ * Nova UI — Modal Component Styles
+ *
+ * Implements @layer nova.components for dialog overlays and focus-trapped modals.
+ */
+@layer nova.components {
+  .nova-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: var(--nova-z-modal);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--nova-space-4);
+    box-sizing: border-box;
+    animation: nova-modal-fade-in var(--nova-transition-fast) ease-out;
+  }
+
+  .nova-modal {
+    position: relative;
+    background-color: var(--nova-color-surface);
+    color: var(--nova-color-text);
+    border: 1px solid var(--nova-color-border);
+    border-radius: var(--nova-radius-xl);
+    box-shadow: var(--nova-shadow-xl);
+    width: 100%;
+    max-height: calc(100vh - var(--nova-space-8));
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: var(--nova-font-sans);
+    animation: nova-modal-scale-in var(--nova-transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Sizes */
+  .nova-modal--sm {
+    max-width: 420px;
+  }
+
+  .nova-modal--md {
+    max-width: 560px;
+  }
+
+  .nova-modal--lg {
+    max-width: 800px;
+  }
+
+  .nova-modal--full {
+    max-width: calc(100vw - var(--nova-space-8));
+    height: calc(100vh - var(--nova-space-8));
+  }
+
+  /* Header */
+  .nova-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--nova-space-5) var(--nova-space-6);
+    border-bottom: 1px solid var(--nova-color-border);
+    gap: var(--nova-space-4);
+  }
+
+  .nova-modal-title {
+    font-size: var(--nova-text-lg);
+    font-weight: 600;
+    color: var(--nova-color-text);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .nova-modal-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--nova-color-text-muted);
+    cursor: pointer;
+    padding: var(--nova-space-1);
+    border-radius: var(--nova-radius-sm);
+    transition: color var(--nova-transition-fast), background-color var(--nova-transition-fast);
+  }
+  .nova-modal-close:hover {
+    color: var(--nova-color-text);
+    background-color: var(--nova-color-muted);
+  }
+
+  /* Content */
+  .nova-modal-content {
+    padding: var(--nova-space-6);
+    overflow-y: auto;
+    flex: 1 1 auto;
+    line-height: 1.5;
+    font-size: var(--nova-text-sm);
+  }
+
+  /* Footer */
+  .nova-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--nova-space-3);
+    padding: var(--nova-space-4) var(--nova-space-6);
+    border-top: 1px solid var(--nova-color-border);
+    background-color: var(--nova-color-surface);
+  }
+
+  @keyframes nova-modal-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes nova-modal-scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

@@ -18,12 +18,19 @@ export * from './checkbox';
 export * from './radio';
 export * from './switch';
 
+// Milestone 4 Interactive Components
+export * from './modal';
+export * from './dropdown';
+export * from './tooltip';
+export * from './tabs';
+
 // Re-export core types for convenience
 export type {
   NovaSize,
   NovaVariant,
   NovaStatus,
   NovaOrientation,
+  NovaPlacement,
   NovaButtonProps,
   NovaInputProps,
   NovaCardProps,
@@ -37,4 +44,10 @@ export type {
   NovaRadioGroupProps,
   NovaRadioOption,
   NovaSwitchProps,
+  NovaModalProps,
+  NovaDropdownItem,
+  NovaDropdownProps,
+  NovaTooltipProps,
+  NovaTabItem,
+  NovaTabsProps,
 } from '@nova-ui/core';

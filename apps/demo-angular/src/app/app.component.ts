@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
+  // Milestone 2
   NovaButtonComponent,
   NovaInputComponent,
   NovaCardComponent,
@@ -14,12 +15,30 @@ import {
   NovaAlertComponent,
   NovaAlertTitleComponent,
   NovaAlertDescriptionComponent,
+  // Milestone 3
   NovaTextareaComponent,
   NovaSelectComponent,
   NovaCheckboxComponent,
   NovaRadioGroupComponent,
   NovaRadioComponent,
   NovaSwitchComponent,
+  // Milestone 4
+  NovaModalComponent,
+  NovaModalHeaderComponent,
+  NovaModalTitleComponent,
+  NovaModalContentComponent,
+  NovaModalFooterComponent,
+  NovaDropdownComponent,
+  NovaDropdownTriggerDirective,
+  NovaDropdownMenuComponent,
+  NovaDropdownItemComponent,
+  NovaDropdownDividerComponent,
+  NovaTooltipDirective,
+  NovaTabsComponent,
+  NovaTabListComponent,
+  NovaTabTriggerComponent,
+  NovaTabContentComponent,
+  type NovaOrientation,
 } from '@nova-ui/angular';
 
 @Component({
@@ -28,6 +47,7 @@ import {
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    // Milestone 2
     NovaButtonComponent,
     NovaInputComponent,
     NovaCardComponent,
@@ -40,12 +60,29 @@ import {
     NovaAlertComponent,
     NovaAlertTitleComponent,
     NovaAlertDescriptionComponent,
+    // Milestone 3
     NovaTextareaComponent,
     NovaSelectComponent,
     NovaCheckboxComponent,
     NovaRadioGroupComponent,
     NovaRadioComponent,
     NovaSwitchComponent,
+    // Milestone 4
+    NovaModalComponent,
+    NovaModalHeaderComponent,
+    NovaModalTitleComponent,
+    NovaModalContentComponent,
+    NovaModalFooterComponent,
+    NovaDropdownComponent,
+    NovaDropdownTriggerDirective,
+    NovaDropdownMenuComponent,
+    NovaDropdownItemComponent,
+    NovaDropdownDividerComponent,
+    NovaTooltipDirective,
+    NovaTabsComponent,
+    NovaTabListComponent,
+    NovaTabTriggerComponent,
+    NovaTabContentComponent,
   ],
   template: `
     <div class="demo-layout">
@@ -60,7 +97,7 @@ import {
         </div>
 
         <div class="demo-header__actions">
-          <nova-badge variant="primary" size="md">Milestone 3 — 10 Components</nova-badge>
+          <nova-badge variant="primary" size="md">Milestone 4 — 14 Components</nova-badge>
           <nova-button
             variant="outline"
             size="sm"
@@ -76,21 +113,177 @@ import {
         <!-- Introduction Banner -->
         <section class="demo-section">
           <nova-alert variant="info" [dismissible]="true" (dismissed)="onAlertDismissed('intro')">
-            <nova-alert-title>Nova UI Milestone 3 Active</nova-alert-title>
+            <nova-alert-title>Milestone 4: Interactive Components Active</nova-alert-title>
             <nova-alert-description>
-              Now featuring all 10 core & form components: Button, Input, Card, Badge, Alert, Textarea, Select, Checkbox, Radio, and Switch!
+              Now featuring 14 components: Modal, Dropdown, Tooltip, Tabs + Form & Core suites!
             </nova-alert-description>
           </nova-alert>
         </section>
 
-        <!-- 1. Milestone 3: Complete Form Components Suite -->
+        <!-- SECTION 1: MILESTONE 4 INTERACTIVE COMPONENTS -->
         <section class="demo-section">
-          <h2 class="demo-section__title">1. Form Components Suite (Milestone 3)</h2>
-          <p class="demo-section__desc">Full Reactive Forms ControlValueAccessor synchronization across all 5 form controls.</p>
+          <h2 class="demo-section__title">1. Interactive Components (Milestone 4)</h2>
+          <p class="demo-section__desc">Focus-trapped dialogs, floating dropdown menus, directional tooltips, and keyboard-accessible tabs.</p>
+
+          <div class="demo-grid demo-grid--2col">
+            <!-- Modal & Dropdown Card -->
+            <nova-card variant="elevated" padding="md">
+              <nova-card-header>
+                <nova-card-title>Modal & Dropdown Menus</nova-card-title>
+                <nova-card-description>Dialog overlays and contextual menus</nova-card-description>
+              </nova-card-header>
+
+              <nova-card-content>
+                <div class="demo-button-group">
+                  <!-- Open Modal Button -->
+                  <nova-button
+                    variant="primary"
+                    size="md"
+                    (click)="isModalOpen = true"
+                  >
+                    Open Modal Dialog
+                  </nova-button>
+
+                  <!-- Dropdown Menu -->
+                  <nova-dropdown>
+                    <nova-button
+                      novaDropdownTrigger
+                      variant="outline"
+                      size="md"
+                    >
+                      Action Menu ▼
+                    </nova-button>
+                    <nova-dropdown-menu align="left">
+                      <nova-dropdown-item (action)="handleDropdownAction('Edit Profile')">
+                        ✏️ Edit Profile
+                      </nova-dropdown-item>
+                      <nova-dropdown-item (action)="handleDropdownAction('Account Settings')">
+                        ⚙️ Account Settings
+                      </nova-dropdown-item>
+                      <nova-dropdown-item (action)="handleDropdownAction('Team Billing')">
+                        💳 Team Billing
+                      </nova-dropdown-item>
+                      <nova-dropdown-divider></nova-dropdown-divider>
+                      <nova-dropdown-item [danger]="true" (action)="handleDropdownAction('Delete Project')">
+                        🗑️ Delete Project
+                      </nova-dropdown-item>
+                    </nova-dropdown-menu>
+                  </nova-dropdown>
+                </div>
+
+                <div *ngIf="lastDropdownAction" class="demo-action-feedback">
+                  Last action selected: <strong>{{ lastDropdownAction }}</strong>
+                </div>
+
+                <!-- Tooltips Subsection -->
+                <div class="demo-subsection">
+                  <h4 class="demo-subsection__title">Directional Tooltips</h4>
+                  <p class="demo-caption">Hover with mouse or navigate via Tab key to inspect hints:</p>
+                  <div class="demo-row">
+                    <nova-button
+                      variant="ghost"
+                      size="sm"
+                      novaTooltip="Tooltip displayed on Top"
+                      tooltipPlacement="top"
+                    >
+                      Top
+                    </nova-button>
+
+                    <nova-button
+                      variant="ghost"
+                      size="sm"
+                      novaTooltip="Tooltip displayed on Bottom"
+                      tooltipPlacement="bottom"
+                    >
+                      Bottom
+                    </nova-button>
+
+                    <nova-button
+                      variant="ghost"
+                      size="sm"
+                      novaTooltip="Tooltip displayed on Left"
+                      tooltipPlacement="left"
+                    >
+                      Left
+                    </nova-button>
+
+                    <nova-button
+                      variant="ghost"
+                      size="sm"
+                      novaTooltip="Tooltip displayed on Right"
+                      tooltipPlacement="right"
+                    >
+                      Right
+                    </nova-button>
+                  </div>
+                </div>
+              </nova-card-content>
+            </nova-card>
+
+            <!-- Tabs Showcase Card -->
+            <nova-card variant="elevated" padding="md">
+              <nova-card-header>
+                <div class="demo-card-header-flex">
+                  <div>
+                    <nova-card-title>Tabs Component</nova-card-title>
+                    <nova-card-description>Accessible tablist with keyboard arrow navigation</nova-card-description>
+                  </div>
+                  <nova-button
+                    variant="outline"
+                    size="sm"
+                    (click)="toggleTabsOrientation()"
+                  >
+                    {{ tabsOrientation === 'horizontal' ? 'Switch to Vertical' : 'Switch to Horizontal' }}
+                  </nova-button>
+                </div>
+              </nova-card-header>
+
+              <nova-card-content>
+                <nova-tabs [(activeTab)]="currentTab" [orientation]="tabsOrientation">
+                  <nova-tab-list>
+                    <nova-tab-trigger value="general">Overview</nova-tab-trigger>
+                    <nova-tab-trigger value="security">Security</nova-tab-trigger>
+                    <nova-tab-trigger value="integrations">Integrations</nova-tab-trigger>
+                    <nova-tab-trigger value="disabled" [disabled]="true">Disabled</nova-tab-trigger>
+                  </nova-tab-list>
+
+                  <nova-tab-content value="general">
+                    <div class="demo-tab-panel">
+                      <h4>General System Overview</h4>
+                      <p>Nova UI is engineered to provide unified token architecture and high-performance component adapters across Angular and React.</p>
+                      <nova-badge variant="success" size="sm">Architecture Stable</nova-badge>
+                    </div>
+                  </nova-tab-content>
+
+                  <nova-tab-content value="security">
+                    <div class="demo-tab-panel">
+                      <h4>Security & Compliance</h4>
+                      <p>All component interactions prevent cross-site scripting (XSS), implement strict ARIA accessibility standards, and adhere to WCAG 2.1 AA.</p>
+                      <nova-badge variant="primary" size="sm">WCAG Compliant</nova-badge>
+                    </div>
+                  </nova-tab-content>
+
+                  <nova-tab-content value="integrations">
+                    <div class="demo-tab-panel">
+                      <h4>Available Integrations</h4>
+                      <p>Seamlessly integrates with Nx monorepos, Tailwind CSS design tokens, Next.js documentation sites, and Vite bundlers.</p>
+                      <nova-badge variant="secondary" size="sm">Ready for Production</nova-badge>
+                    </div>
+                  </nova-tab-content>
+                </nova-tabs>
+              </nova-card-content>
+            </nova-card>
+          </div>
+        </section>
+
+        <!-- SECTION 2: FORM COMPONENTS SUITE (MILESTONE 3) -->
+        <section class="demo-section">
+          <h2 class="demo-section__title">2. Form Components Suite (Milestone 3)</h2>
+          <p class="demo-section__desc">Full Reactive Forms ControlValueAccessor streaming across Textarea, Select, Checkbox, Radio, and Switch.</p>
 
           <div class="demo-grid demo-grid--2col">
             <!-- Reactive Form Card -->
-            <nova-card variant="elevated" padding="md">
+            <nova-card variant="outlined" padding="md">
               <nova-card-header>
                 <nova-card-title>Developer Profile Form</nova-card-title>
                 <nova-card-description>Edit any field below to watch the live reactive state update.</nova-card-description>
@@ -98,7 +291,6 @@ import {
 
               <nova-card-content>
                 <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()" class="demo-form">
-                  <!-- Text Input -->
                   <nova-input
                     label="Full Name"
                     placeholder="e.g. Shoriful Habib"
@@ -106,7 +298,6 @@ import {
                     [required]="true"
                   ></nova-input>
 
-                  <!-- Email Input -->
                   <nova-input
                     label="Email Address"
                     type="email"
@@ -116,7 +307,6 @@ import {
                     [error]="emailControl.invalid && emailControl.touched ? 'Valid email required' : undefined"
                   ></nova-input>
 
-                  <!-- Single Select -->
                   <nova-select
                     label="Country / Region"
                     placeholder="Choose country..."
@@ -129,7 +319,6 @@ import {
                     [required]="true"
                   ></nova-select>
 
-                  <!-- Multi-Select with Chips -->
                   <nova-select
                     label="Primary Skills (Multi-select)"
                     placeholder="Choose skills..."
@@ -139,7 +328,6 @@ import {
                     [formControl]="skillsControl"
                   ></nova-select>
 
-                  <!-- Textarea with Auto-Resize and Live Count -->
                   <nova-textarea
                     label="Developer Bio"
                     placeholder="Share your experience..."
@@ -150,7 +338,6 @@ import {
                     hint="Auto-expands as you type"
                   ></nova-textarea>
 
-                  <!-- Radio Group -->
                   <nova-radio-group
                     label="Notification Preferences"
                     [options]="notificationOptions"
@@ -158,7 +345,6 @@ import {
                     orientation="horizontal"
                   ></nova-radio-group>
 
-                  <!-- Switch -->
                   <div class="demo-form-switches">
                     <nova-switch
                       label="Receive product updates & changelog emails"
@@ -167,12 +353,10 @@ import {
                     ></nova-switch>
                   </div>
 
-                  <!-- Checkbox with Required validator -->
                   <nova-checkbox
-                    label="I agree to the Nova UI Terms of Service and Code of Conduct"
+                    label="I agree to the Nova UI Terms of Service"
                     [formControl]="termsControl"
                     [required]="true"
-                    [error]="termsControl.invalid && termsControl.touched ? 'You must accept the terms to continue' : undefined"
                   ></nova-checkbox>
 
                   <nova-button
@@ -188,11 +372,11 @@ import {
               </nova-card-content>
             </nova-card>
 
-            <!-- Live Reactive Form State Monitor -->
-            <nova-card variant="outlined" padding="md">
+            <!-- Live State Monitor -->
+            <nova-card variant="flat" padding="md">
               <nova-card-header>
                 <nova-card-title>Live Reactive State Monitor</nova-card-title>
-                <nova-card-description>ControlValueAccessor two-way data streaming</nova-card-description>
+                <nova-card-description>Real-time form synchronization</nova-card-description>
               </nova-card-header>
 
               <nova-card-content>
@@ -207,49 +391,24 @@ import {
                   <p><strong>Form Values:</strong></p>
                   <pre class="demo-json">{{ userProfileForm.value | json }}</pre>
                 </div>
-
-                <!-- Standalone Form Controls Showcase -->
-                <div class="demo-standalone-section">
-                  <h3 class="demo-subsection__title">Standalone Controls Preview</h3>
-
-                  <p class="demo-caption"><strong>Tri-State Checkbox (Indeterminate):</strong></p>
-                  <div class="demo-row demo-row--align-center">
-                    <nova-checkbox
-                      label="Parent Select All"
-                      [checked]="parentChecked"
-                      [indeterminate]="parentIndeterminate"
-                      (change)="toggleParent($event)"
-                    ></nova-checkbox>
-                    <nova-button variant="outline" size="sm" (click)="cycleIndeterminate()">
-                      Cycle State
-                    </nova-button>
-                  </div>
-
-                  <p class="demo-caption"><strong>Switch Sizes:</strong></p>
-                  <div class="demo-row demo-row--align-center">
-                    <nova-switch label="Small" size="sm" [checked]="true"></nova-switch>
-                    <nova-switch label="Medium" size="md" [checked]="true"></nova-switch>
-                    <nova-switch label="Large" size="lg" [checked]="true"></nova-switch>
-                  </div>
-                </div>
               </nova-card-content>
             </nova-card>
           </div>
         </section>
 
-        <!-- 2. Buttons -->
+        <!-- SECTION 3: BUTTONS & BADGES (MILESTONE 2) -->
         <section class="demo-section">
           <div class="demo-section__header">
             <div>
-              <h2 class="demo-section__title">2. Buttons (Milestone 2)</h2>
-              <p class="demo-section__desc">Variants, sizes, micro-animations, and asynchronous loading states.</p>
+              <h2 class="demo-section__title">3. Buttons & Badges (Milestone 2)</h2>
+              <p class="demo-section__desc">Variants, sizes, loading states, and status badges.</p>
             </div>
             <nova-button variant="secondary" size="sm" (click)="toggleLoading()">
               Toggle Loading ({{ isLoading ? 'ON' : 'OFF' }})
             </nova-button>
           </div>
 
-          <div class="demo-row">
+          <div class="demo-row" style="margin-bottom: var(--nova-space-4);">
             <nova-button variant="primary" [loading]="isLoading">Primary</nova-button>
             <nova-button variant="secondary" [loading]="isLoading">Secondary</nova-button>
             <nova-button variant="success" [loading]="isLoading">Success</nova-button>
@@ -257,81 +416,44 @@ import {
             <nova-button variant="warning" [loading]="isLoading">Warning</nova-button>
             <nova-button variant="outline" [loading]="isLoading">Outline</nova-button>
             <nova-button variant="ghost" [loading]="isLoading">Ghost</nova-button>
-            <nova-button variant="primary" [disabled]="true">Disabled</nova-button>
           </div>
-        </section>
 
-        <!-- 3. Badges & Alerts -->
-        <section class="demo-section">
-          <h2 class="demo-section__title">3. Badges & Alerts (Milestone 2)</h2>
-          <div class="demo-row" style="margin-bottom: var(--nova-space-4);">
+          <div class="demo-row">
             <nova-badge variant="primary">Primary</nova-badge>
             <nova-badge variant="secondary">Secondary</nova-badge>
             <nova-badge variant="success">Active</nova-badge>
             <nova-badge variant="warning">Pending</nova-badge>
             <nova-badge variant="danger">Failed</nova-badge>
             <nova-badge variant="outline">Outline</nova-badge>
-            <nova-badge variant="ghost">Ghost</nova-badge>
-          </div>
-
-          <div class="demo-grid demo-grid--col1">
-            <nova-alert variant="success" [dismissible]="true">
-              <nova-alert-title>Milestone 3 Verification</nova-alert-title>
-              <nova-alert-description>All 10 Nova UI components successfully compiled and running live!</nova-alert-description>
-            </nova-alert>
-          </div>
-        </section>
-
-        <!-- 4. Cards -->
-        <section class="demo-section">
-          <h2 class="demo-section__title">4. Cards (Milestone 2)</h2>
-          <div class="demo-grid demo-grid--3col">
-            <nova-card variant="elevated" padding="md">
-              <nova-card-header>
-                <nova-card-title>Elevated Card</nova-card-title>
-                <nova-card-description>Box-shadow elevation</nova-card-description>
-              </nova-card-header>
-              <nova-card-content>
-                <p>Features drop shadow and border according to design tokens.</p>
-              </nova-card-content>
-              <nova-card-footer>
-                <nova-button variant="primary" size="sm">Action</nova-button>
-              </nova-card-footer>
-            </nova-card>
-
-            <nova-card variant="outlined" padding="md">
-              <nova-card-header>
-                <nova-card-title>Outlined Card</nova-card-title>
-                <nova-card-description>Clean border, flat</nova-card-description>
-              </nova-card-header>
-              <nova-card-content>
-                <p>Clean border with zero drop shadow for minimalist interfaces.</p>
-              </nova-card-content>
-              <nova-card-footer>
-                <nova-button variant="outline" size="sm">Details</nova-button>
-              </nova-card-footer>
-            </nova-card>
-
-            <nova-card variant="flat" padding="md">
-              <nova-card-header>
-                <nova-card-title>Flat Card</nova-card-title>
-                <nova-card-description>Muted surface</nova-card-description>
-              </nova-card-header>
-              <nova-card-content>
-                <p>Blends into container regions with muted background.</p>
-              </nova-card-content>
-              <nova-card-footer>
-                <nova-badge variant="secondary" size="sm">Tag</nova-badge>
-              </nova-card-footer>
-            </nova-card>
           </div>
         </section>
       </main>
+
+      <!-- Interactive Modal Dialog Component -->
+      <nova-modal
+        [(open)]="isModalOpen"
+        title="Deploy to Production"
+        size="md"
+        [closeOnBackdrop]="true"
+        [closeOnEscape]="true"
+      >
+        <nova-modal-content>
+          <p>You are preparing to deploy <strong>Nova UI v0.1.0</strong> to the production cluster.</p>
+          <p>This deployment includes all 14 core, form, and interactive components along with design token stylesheets.</p>
+          <nova-alert variant="warning">
+            All connected applications will automatically receive updated token styles.
+          </nova-alert>
+        </nova-modal-content>
+        <nova-modal-footer>
+          <nova-button variant="outline" (click)="isModalOpen = false">Cancel</nova-button>
+          <nova-button variant="primary" (click)="confirmDeployment()">Confirm Deployment</nova-button>
+        </nova-modal-footer>
+      </nova-modal>
     </div>
   `,
   styles: [`
     .demo-layout {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: var(--nova-space-6) var(--nova-space-4);
     }
@@ -386,38 +508,67 @@ import {
       color: var(--nova-color-text-secondary);
       margin: 0 0 var(--nova-space-4);
     }
+    .demo-subsection {
+      margin-top: var(--nova-space-6);
+      border-top: 1px solid var(--nova-color-border);
+      padding-top: var(--nova-space-4);
+    }
     .demo-subsection__title {
       font-size: var(--nova-text-sm);
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--nova-color-text-muted);
-      margin: var(--nova-space-4) 0 var(--nova-space-2);
+      margin: 0 0 var(--nova-space-2);
     }
     .demo-caption {
       font-size: var(--nova-text-xs);
       color: var(--nova-color-text-secondary);
-      margin: var(--nova-space-3) 0 var(--nova-space-1-5);
+      margin: 0 0 var(--nova-space-3);
+    }
+    .demo-button-group {
+      display: flex;
+      align-items: center;
+      gap: var(--nova-space-3);
+      flex-wrap: wrap;
+    }
+    .demo-action-feedback {
+      margin-top: var(--nova-space-3);
+      font-size: var(--nova-text-xs);
+      color: var(--nova-color-primary);
+      background-color: rgba(99, 102, 241, 0.08);
+      padding: var(--nova-space-2) var(--nova-space-3);
+      border-radius: var(--nova-radius-sm);
+    }
+    .demo-card-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+    }
+    .demo-tab-panel {
+      padding: var(--nova-space-2) 0;
+    }
+    .demo-tab-panel h4 {
+      margin: 0 0 var(--nova-space-2);
+      font-size: var(--nova-text-base);
+    }
+    .demo-tab-panel p {
+      margin: 0 0 var(--nova-space-3);
+      font-size: var(--nova-text-sm);
+      color: var(--nova-color-text-secondary);
+      line-height: 1.5;
     }
     .demo-row {
       display: flex;
       flex-wrap: wrap;
       gap: var(--nova-space-3);
     }
-    .demo-row--align-center {
-      align-items: center;
-    }
     .demo-grid {
       display: grid;
-      gap: var(--nova-space-4);
-    }
-    .demo-grid--col1 {
-      grid-template-columns: 1fr;
+      gap: var(--nova-space-6);
     }
     .demo-grid--2col {
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    }
-    .demo-grid--3col {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
     .demo-form {
       display: flex;
@@ -448,22 +599,19 @@ import {
       overflow-x: auto;
       margin: 0;
     }
-    .demo-standalone-section {
-      margin-top: var(--nova-space-6);
-      border-top: 1px solid var(--nova-color-border);
-      padding-top: var(--nova-space-4);
-    }
   `],
 })
 export class AppComponent {
   currentTheme: 'light' | 'dark' = 'light';
   isLoading = false;
 
-  // Tri-state checkbox demo state
-  parentChecked = false;
-  parentIndeterminate = true;
+  // Milestone 4 states
+  isModalOpen = false;
+  lastDropdownAction = '';
+  currentTab = 'general';
+  tabsOrientation: NovaOrientation = 'horizontal';
 
-  // Form Controls
+  // Milestone 3 Form Controls
   nameControl = new FormControl('Shoriful Habib', [Validators.required]);
   emailControl = new FormControl('shoriful@example.com', [Validators.required, Validators.email]);
   countryControl = new FormControl('us', [Validators.required]);
@@ -486,14 +634,12 @@ export class AppComponent {
     terms: this.termsControl,
   });
 
-  // Options
   countryOptions = [
     { code: 'us', name: 'United States' },
     { code: 'ca', name: 'Canada' },
     { code: 'de', name: 'Germany' },
     { code: 'jp', name: 'Japan' },
     { code: 'uk', name: 'United Kingdom' },
-    { code: 'au', name: 'Australia' },
   ];
 
   skillOptions = [
@@ -502,7 +648,6 @@ export class AppComponent {
     { value: 'vue', label: 'Vue.js' },
     { value: 'svelte', label: 'Svelte' },
     { value: 'ts', label: 'TypeScript' },
-    { value: 'tailwind', label: 'Tailwind CSS' },
   ];
 
   notificationOptions = [
@@ -524,22 +669,17 @@ export class AppComponent {
     console.log(`Alert ${tag} dismissed`);
   }
 
-  toggleParent(checked: boolean): void {
-    this.parentChecked = checked;
-    this.parentIndeterminate = false;
+  handleDropdownAction(actionName: string): void {
+    this.lastDropdownAction = actionName;
   }
 
-  cycleIndeterminate(): void {
-    if (!this.parentChecked && this.parentIndeterminate) {
-      this.parentChecked = true;
-      this.parentIndeterminate = false;
-    } else if (this.parentChecked && !this.parentIndeterminate) {
-      this.parentChecked = false;
-      this.parentIndeterminate = false;
-    } else {
-      this.parentChecked = false;
-      this.parentIndeterminate = true;
-    }
+  toggleTabsOrientation(): void {
+    this.tabsOrientation = this.tabsOrientation === 'horizontal' ? 'vertical' : 'horizontal';
+  }
+
+  confirmDeployment(): void {
+    this.isModalOpen = false;
+    alert('Production Deployment initiated successfully!');
   }
 
   onSubmit(): void {

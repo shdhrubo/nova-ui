@@ -1,0 +1,91 @@
+/**
+ * Nova UI — Dropdown Component Styles
+ *
+ * Implements @layer nova.components for action menus and contextual popups.
+ */
+@layer nova.components {
+  .nova-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .nova-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    z-index: var(--nova-z-dropdown);
+    min-width: 190px;
+    background-color: var(--nova-color-surface);
+    border: 1px solid var(--nova-color-border);
+    border-radius: var(--nova-radius-md);
+    box-shadow: var(--nova-shadow-lg);
+    padding: var(--nova-space-1);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-family: var(--nova-font-sans);
+    animation: nova-modal-scale-in var(--nova-transition-fast) ease-out;
+  }
+
+  .nova-dropdown-menu--right {
+    left: auto;
+    right: 0;
+  }
+
+  .nova-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: var(--nova-space-2-5);
+    padding: var(--nova-space-2) var(--nova-space-3);
+    border-radius: var(--nova-radius-sm);
+    font-size: var(--nova-text-sm);
+    color: var(--nova-color-text);
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    background: transparent;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+    transition: background-color var(--nova-transition-fast), color var(--nova-transition-fast);
+  }
+
+  .nova-dropdown-item:hover,
+  .nova-dropdown-item:focus-visible,
+  .nova-dropdown-item--highlighted {
+    background-color: var(--nova-color-muted);
+    outline: none;
+  }
+
+  .nova-dropdown-item--danger {
+    color: var(--nova-color-danger);
+  }
+  .nova-dropdown-item--danger:hover {
+    background-color: rgba(239, 68, 68, 0.08);
+  }
+
+  .nova-dropdown-item--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .nova-dropdown-divider {
+    height: 1px;
+    background-color: var(--nova-color-border);
+    margin: var(--nova-space-1) 0;
+  }
+
+  .nova-dropdown-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--nova-color-text-muted);
+  }
+  .nova-dropdown-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}

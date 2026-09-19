@@ -30,13 +30,17 @@
     "format:check": "npx prettier --check \"**/*.{ts,tsx,js,jsx,css,md,json}\""
   },
   "devDependencies": {
+    "@angular/common": "^18.2.14",
+    "@angular/core": "^18.2.14",
+    "@angular/forms": "^18.2.14",
     "@nx/js": "23.2.1",
     "@swc/helpers": "~0.5.18",
     "nx": "23.2.1",
     "prettier": "~3.6.2",
+    "rxjs": "^7.8.2",
     "tslib": "^2.3.0",
     "typescript": "~6.0.3",
-    "vitest": "^3.2.0"
-  },
-  "dependencies": {}
+    "vitest": "^3.2.0",
+    "zone.js": "^0.14.10"
+  }
 }

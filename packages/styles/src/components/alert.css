@@ -1,0 +1,110 @@
+/**
+ * Nova UI — Alert Component Styles
+ *
+ * Implements @layer nova.components for prominent status messages.
+ */
+@layer nova.components {
+  .nova-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--nova-space-3);
+    padding: var(--nova-space-4);
+    border-radius: var(--nova-radius-lg);
+    border: 1px solid var(--nova-color-border);
+    background-color: var(--nova-color-surface);
+    color: var(--nova-color-text);
+    font-family: var(--nova-font-sans);
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    transition: opacity var(--nova-transition-fast), transform var(--nova-transition-fast);
+  }
+
+  /* Variants */
+  .nova-alert--info {
+    border-color: rgba(14, 165, 233, 0.3);
+    background-color: rgba(14, 165, 233, 0.08);
+  }
+  .nova-alert--info .nova-alert-icon {
+    color: var(--nova-color-info);
+  }
+
+  .nova-alert--success {
+    border-color: rgba(34, 197, 94, 0.3);
+    background-color: rgba(34, 197, 94, 0.08);
+  }
+  .nova-alert--success .nova-alert-icon {
+    color: var(--nova-color-success);
+  }
+
+  .nova-alert--warning {
+    border-color: rgba(245, 158, 11, 0.3);
+    background-color: rgba(245, 158, 11, 0.08);
+  }
+  .nova-alert--warning .nova-alert-icon {
+    color: var(--nova-color-warning);
+  }
+
+  .nova-alert--danger {
+    border-color: rgba(239, 68, 68, 0.3);
+    background-color: rgba(239, 68, 68, 0.08);
+  }
+  .nova-alert--danger .nova-alert-icon {
+    color: var(--nova-color-danger);
+  }
+
+  /* Alert Subcomponents */
+  .nova-alert-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .nova-alert-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .nova-alert-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--nova-space-1);
+    min-width: 0;
+  }
+
+  .nova-alert-title {
+    font-size: var(--nova-text-sm);
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    color: var(--nova-color-text);
+  }
+
+  .nova-alert-description {
+    font-size: var(--nova-text-sm);
+    color: var(--nova-color-text-secondary);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .nova-alert-close {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--nova-color-text-muted);
+    padding: var(--nova-space-1);
+    border-radius: var(--nova-radius-sm);
+    transition: color var(--nova-transition-fast), background-color var(--nova-transition-fast);
+  }
+
+  .nova-alert-close:hover {
+    color: var(--nova-color-text);
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}

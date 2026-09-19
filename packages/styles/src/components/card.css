@@ -1,0 +1,84 @@
+/**
+ * Nova UI — Card Component Styles
+ *
+ * Implements @layer nova.components for structured card containers.
+ */
+@layer nova.components {
+  .nova-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--nova-radius-xl);
+    background-color: var(--nova-color-surface);
+    color: var(--nova-color-text);
+    font-family: var(--nova-font-sans);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Variants */
+  .nova-card--elevated {
+    border: 1px solid var(--nova-color-border);
+    box-shadow: var(--nova-shadow-md);
+  }
+
+  .nova-card--outlined {
+    border: 1px solid var(--nova-color-border);
+    box-shadow: none;
+  }
+
+  .nova-card--flat {
+    border: 1px solid transparent;
+    background-color: var(--nova-color-muted);
+    box-shadow: none;
+  }
+
+  /* Padding */
+  .nova-card--padding-sm {
+    padding: var(--nova-space-3);
+    gap: var(--nova-space-3);
+  }
+
+  .nova-card--padding-md {
+    padding: var(--nova-space-6);
+    gap: var(--nova-space-4);
+  }
+
+  .nova-card--padding-lg {
+    padding: var(--nova-space-8);
+    gap: var(--nova-space-6);
+  }
+
+  /* Card Subcomponents */
+  .nova-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nova-space-1-5);
+  }
+
+  .nova-card-title {
+    font-size: var(--nova-text-xl);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    color: var(--nova-color-text);
+    margin: 0;
+  }
+
+  .nova-card-description {
+    font-size: var(--nova-text-sm);
+    color: var(--nova-color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .nova-card-content {
+    flex: 1 1 auto;
+  }
+
+  .nova-card-footer {
+    display: flex;
+    align-items: center;
+    gap: var(--nova-space-3);
+  }
+}

@@ -20,7 +20,11 @@
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "@nova-ui/tokens": ["./packages/tokens/dist/index.d.ts", "./packages/tokens/src/index.ts"],
+      "@nova-ui/core": ["./packages/core/dist/index.d.ts", "./packages/core/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "dist", "tmp"]
 }

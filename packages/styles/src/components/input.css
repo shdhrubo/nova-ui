@@ -1,0 +1,116 @@
+/**
+ * Nova UI — Input Component Styles
+ *
+ * Implements @layer nova.components for form inputs.
+ */
+@layer nova.components {
+  .nova-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nova-space-1-5);
+    width: 100%;
+    font-family: var(--nova-font-sans);
+    box-sizing: border-box;
+  }
+
+  .nova-input-label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nova-space-1);
+    font-size: var(--nova-text-sm);
+    font-weight: 500;
+    color: var(--nova-color-text);
+    user-select: none;
+  }
+
+  .nova-input-label__required {
+    color: var(--nova-color-danger);
+  }
+
+  .nova-input {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    color: var(--nova-color-text);
+    background-color: var(--nova-color-surface);
+    border: 1px solid var(--nova-color-border);
+    border-radius: var(--nova-radius-md);
+    outline: none;
+    transition:
+      border-color var(--nova-transition-fast),
+      box-shadow var(--nova-transition-fast);
+  }
+
+  .nova-input::placeholder {
+    color: var(--nova-color-text-muted);
+  }
+
+  .nova-input:hover:not(:disabled):not([readonly]) {
+    border-color: var(--nova-color-border-hover);
+  }
+
+  .nova-input:focus {
+    border-color: var(--nova-color-border-focus);
+    box-shadow: 0 0 0 var(--nova-ring-width) rgba(99, 102, 241, 0.25);
+  }
+
+  /* Sizes */
+  .nova-input--sm {
+    height: 32px;
+    padding: 0 var(--nova-space-2-5);
+    font-size: var(--nova-text-xs);
+    border-radius: var(--nova-radius-sm);
+  }
+
+  .nova-input--md {
+    height: 40px;
+    padding: 0 var(--nova-space-3);
+    font-size: var(--nova-text-sm);
+    border-radius: var(--nova-radius-md);
+  }
+
+  .nova-input--lg {
+    height: 48px;
+    padding: 0 var(--nova-space-4);
+    font-size: var(--nova-text-base);
+    border-radius: var(--nova-radius-lg);
+  }
+
+  /* Error State */
+  .nova-input--error {
+    border-color: var(--nova-color-danger);
+  }
+
+  .nova-input--error:focus {
+    border-color: var(--nova-color-danger);
+    box-shadow: 0 0 0 var(--nova-ring-width) rgba(239, 68, 68, 0.25);
+  }
+
+  /* Disabled & Readonly */
+  .nova-input:disabled,
+  .nova-input--disabled {
+    background-color: var(--nova-color-muted);
+    color: var(--nova-color-text-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .nova-input[readonly] {
+    background-color: var(--nova-color-muted);
+    cursor: default;
+  }
+
+  /* Hint & Error Text */
+  .nova-input-hint {
+    font-size: var(--nova-text-xs);
+    color: var(--nova-color-text-muted);
+    margin-top: var(--nova-space-0-5);
+  }
+
+  .nova-input-error-msg {
+    font-size: var(--nova-text-xs);
+    color: var(--nova-color-danger);
+    font-weight: 500;
+    margin-top: var(--nova-space-0-5);
+  }
+}

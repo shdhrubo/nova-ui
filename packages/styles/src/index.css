@@ -9,6 +9,7 @@
  *   import '@nova-ui/styles/tokens';
  *   import '@nova-ui/styles/themes/light';
  *   import '@nova-ui/styles/themes/dark';
+ *   import '@nova-ui/styles/components';
  */
 
 /* 1. Layer ordering (must be first) */
@@ -24,5 +25,8 @@
 @import './themes/light.css';
 @import './themes/dark.css';
 
-/* 5. Utility classes */
+/* 5. Component layers */
+@import './components/index.css';
+
+/* 6. Utility classes */
 @import './utilities.css';

@@ -1,0 +1,11 @@
+@import '../../../packages/styles/src/index.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--nova-font-sans);
+  background-color: var(--nova-color-background);
+  color: var(--nova-color-text);
+  min-height: 100vh;
+  box-sizing: border-box;
+}

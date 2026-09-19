@@ -22,8 +22,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "paths": {
-      "@nova-ui/tokens": ["./packages/tokens/dist/index.d.ts", "./packages/tokens/src/index.ts"],
-      "@nova-ui/core": ["./packages/core/dist/index.d.ts", "./packages/core/src/index.ts"]
+      "@nova-ui/tokens": ["./packages/tokens/dist/index.d.ts"],
+      "@nova-ui/core": ["./packages/core/dist/index.d.ts"],
+      "@nova-ui/angular": ["./packages/angular/dist/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "dist", "tmp"]

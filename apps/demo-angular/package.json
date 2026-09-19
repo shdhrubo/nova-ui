@@ -1,0 +1,23 @@
+{
+  "name": "@nova-ui/demo-angular",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "ng serve",
+    "build": "ng build"
+  },
+  "dependencies": {
+    "@angular/common": "^18.2.14",
+    "@angular/core": "^18.2.14",
+    "@angular/forms": "^18.2.14",
+    "@angular/platform-browser": "^18.2.14",
+    "@angular/platform-browser-dynamic": "^18.2.14",
+    "@nova-ui/angular": "*",
+    "@nova-ui/core": "*",
+    "@nova-ui/styles": "*",
+    "@nova-ui/tokens": "*",
+    "rxjs": "^7.8.2",
+    "tslib": "^2.3.0",
+    "zone.js": "^0.14.10"
+  }
+}

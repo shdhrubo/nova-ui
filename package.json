@@ -23,6 +23,7 @@
     "apps/*"
   ],
   "scripts": {
+    "start": "ng serve demo-angular",
     "build": "npx nx run-many --target=build --all",
     "test": "npx nx run-many --target=test --all",
     "lint": "npx nx run-many --target=lint --all",
@@ -30,16 +31,21 @@
     "format:check": "npx prettier --check \"**/*.{ts,tsx,js,jsx,css,md,json}\""
   },
   "devDependencies": {
+    "@angular/build": "^18.2.21",
+    "@angular/cli": "^18.2.21",
     "@angular/common": "^18.2.14",
+    "@angular/compiler": "^18.2.14",
     "@angular/core": "^18.2.14",
     "@angular/forms": "^18.2.14",
+    "@angular/platform-browser": "^18.2.14",
+    "@angular/platform-browser-dynamic": "^18.2.14",
     "@nx/js": "23.2.1",
     "@swc/helpers": "~0.5.18",
     "nx": "23.2.1",
     "prettier": "~3.6.2",
     "rxjs": "^7.8.2",
     "tslib": "^2.3.0",
-    "typescript": "~6.0.3",
+    "typescript": "~5.5.4",
     "vitest": "^3.2.0",
     "zone.js": "^0.14.10"
   }

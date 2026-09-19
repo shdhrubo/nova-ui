@@ -1,0 +1,52 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "apps",
+  "projects": {
+    "demo-angular": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/demo-angular",
+      "sourceRoot": "apps/demo-angular/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "dist/demo-angular",
+            "index": "apps/demo-angular/src/index.html",
+            "browser": "apps/demo-angular/src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "apps/demo-angular/tsconfig.app.json",
+            "assets": [],
+            "styles": ["apps/demo-angular/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "demo-angular:build:production"
+            },
+            "development": {
+              "buildTarget": "demo-angular:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  }
+}

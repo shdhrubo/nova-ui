@@ -13,7 +13,7 @@
   },
   "files": ["dist"],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "ngc -p tsconfig.json",
     "test": "echo 'Unit tests deferred per user instruction'",
     "type-check": "tsc --noEmit"
   },

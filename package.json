@@ -33,7 +33,8 @@
     "format:check": "npx prettier --check \"**/*.{ts,tsx,js,jsx,css,md,json}\"",
     "changeset": "npx @changesets/cli",
     "version-packages": "npx @changesets/cli version",
-    "pack:all": "node scripts/pack-all.js"
+    "pack:all": "node scripts/pack-all.js",
+    "publish:all": "node scripts/publish-all.js"
   },
   "devDependencies": {
     "@angular/build": "^21.2.23",

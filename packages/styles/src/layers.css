@@ -1,0 +1,7 @@
+/**
+ * Nova UI — CSS Layers
+ *
+ * Define cascade layer ordering for predictable CSS specificity.
+ * Layers declared first have lowest priority.
+ */
+@layer nova.reset, nova.tokens, nova.components, nova.utilities;

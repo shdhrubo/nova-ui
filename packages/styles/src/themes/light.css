@@ -1,0 +1,74 @@
+/**
+ * Nova UI — Light Theme
+ *
+ * Default theme. Applied to :root and [data-nova-theme="light"].
+ * Shadcn-inspired color palette with indigo primary.
+ */
+@layer nova.tokens {
+  :root,
+  [data-nova-theme="light"] {
+    color-scheme: light;
+
+    /* Primary */
+    --nova-color-primary: #6366f1;
+    --nova-color-primary-hover: #4f46e5;
+    --nova-color-primary-active: #4338ca;
+    --nova-color-primary-foreground: #ffffff;
+
+    /* Secondary */
+    --nova-color-secondary: #8b5cf6;
+    --nova-color-secondary-hover: #7c3aed;
+    --nova-color-secondary-active: #6d28d9;
+    --nova-color-secondary-foreground: #ffffff;
+
+    /* Success */
+    --nova-color-success: #22c55e;
+    --nova-color-success-hover: #16a34a;
+    --nova-color-success-foreground: #ffffff;
+
+    /* Warning */
+    --nova-color-warning: #f59e0b;
+    --nova-color-warning-hover: #d97706;
+    --nova-color-warning-foreground: #ffffff;
+
+    /* Danger */
+    --nova-color-danger: #ef4444;
+    --nova-color-danger-hover: #dc2626;
+    --nova-color-danger-foreground: #ffffff;
+
+    /* Info */
+    --nova-color-info: #0ea5e9;
+    --nova-color-info-hover: #0284c7;
+    --nova-color-info-foreground: #ffffff;
+
+    /* Surface & Background */
+    --nova-color-background: #ffffff;
+    --nova-color-surface: #ffffff;
+    --nova-color-surface-hover: #f9fafb;
+    --nova-color-muted: #f3f4f6;
+    --nova-color-muted-foreground: #6b7280;
+
+    /* Text */
+    --nova-color-text: #111827;
+    --nova-color-text-secondary: #4b5563;
+    --nova-color-text-muted: #9ca3af;
+    --nova-color-text-inverse: #ffffff;
+
+    /* Border */
+    --nova-color-border: #e5e7eb;
+    --nova-color-border-hover: #d1d5db;
+    --nova-color-border-focus: #6366f1;
+
+    /* Focus Ring */
+    --nova-color-ring: #6366f1;
+    --nova-color-ring-offset: #ffffff;
+
+    /* Input */
+    --nova-color-input-background: #ffffff;
+    --nova-color-input-border: #d1d5db;
+    --nova-color-input-placeholder: #9ca3af;
+
+    /* Overlay */
+    --nova-color-overlay: rgba(0, 0, 0, 0.5);
+  }
+}

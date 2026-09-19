@@ -1,0 +1,130 @@
+/**
+ * Nova UI — Dark Theme
+ *
+ * Applied via [data-nova-theme="dark"] attribute on html or any ancestor.
+ * Also respects prefers-color-scheme for "system" mode.
+ */
+@layer nova.tokens {
+  [data-nova-theme="dark"] {
+    color-scheme: dark;
+
+    /* Primary */
+    --nova-color-primary: #818cf8;
+    --nova-color-primary-hover: #a5b4fc;
+    --nova-color-primary-active: #c7d2fe;
+    --nova-color-primary-foreground: #111827;
+
+    /* Secondary */
+    --nova-color-secondary: #a78bfa;
+    --nova-color-secondary-hover: #c4b5fd;
+    --nova-color-secondary-active: #ddd6fe;
+    --nova-color-secondary-foreground: #111827;
+
+    /* Success */
+    --nova-color-success: #4ade80;
+    --nova-color-success-hover: #86efac;
+    --nova-color-success-foreground: #111827;
+
+    /* Warning */
+    --nova-color-warning: #fbbf24;
+    --nova-color-warning-hover: #fcd34d;
+    --nova-color-warning-foreground: #111827;
+
+    /* Danger */
+    --nova-color-danger: #f87171;
+    --nova-color-danger-hover: #fca5a5;
+    --nova-color-danger-foreground: #111827;
+
+    /* Info */
+    --nova-color-info: #38bdf8;
+    --nova-color-info-hover: #7dd3fc;
+    --nova-color-info-foreground: #111827;
+
+    /* Surface & Background */
+    --nova-color-background: #030712;
+    --nova-color-surface: #111827;
+    --nova-color-surface-hover: #1f2937;
+    --nova-color-muted: #1f2937;
+    --nova-color-muted-foreground: #9ca3af;
+
+    /* Text */
+    --nova-color-text: #f9fafb;
+    --nova-color-text-secondary: #d1d5db;
+    --nova-color-text-muted: #6b7280;
+    --nova-color-text-inverse: #111827;
+
+    /* Border */
+    --nova-color-border: #1f2937;
+    --nova-color-border-hover: #374151;
+    --nova-color-border-focus: #818cf8;
+
+    /* Focus Ring */
+    --nova-color-ring: #818cf8;
+    --nova-color-ring-offset: #030712;
+
+    /* Input */
+    --nova-color-input-background: #111827;
+    --nova-color-input-border: #374151;
+    --nova-color-input-placeholder: #6b7280;
+
+    /* Overlay */
+    --nova-color-overlay: rgba(0, 0, 0, 0.7);
+  }
+
+  /* System preference auto-detection */
+  @media (prefers-color-scheme: dark) {
+    [data-nova-theme="system"] {
+      color-scheme: dark;
+
+      --nova-color-primary: #818cf8;
+      --nova-color-primary-hover: #a5b4fc;
+      --nova-color-primary-active: #c7d2fe;
+      --nova-color-primary-foreground: #111827;
+
+      --nova-color-secondary: #a78bfa;
+      --nova-color-secondary-hover: #c4b5fd;
+      --nova-color-secondary-active: #ddd6fe;
+      --nova-color-secondary-foreground: #111827;
+
+      --nova-color-success: #4ade80;
+      --nova-color-success-hover: #86efac;
+      --nova-color-success-foreground: #111827;
+
+      --nova-color-warning: #fbbf24;
+      --nova-color-warning-hover: #fcd34d;
+      --nova-color-warning-foreground: #111827;
+
+      --nova-color-danger: #f87171;
+      --nova-color-danger-hover: #fca5a5;
+      --nova-color-danger-foreground: #111827;
+
+      --nova-color-info: #38bdf8;
+      --nova-color-info-hover: #7dd3fc;
+      --nova-color-info-foreground: #111827;
+
+      --nova-color-background: #030712;
+      --nova-color-surface: #111827;
+      --nova-color-surface-hover: #1f2937;
+      --nova-color-muted: #1f2937;
+      --nova-color-muted-foreground: #9ca3af;
+
+      --nova-color-text: #f9fafb;
+      --nova-color-text-secondary: #d1d5db;
+      --nova-color-text-muted: #6b7280;
+      --nova-color-text-inverse: #111827;
+
+      --nova-color-border: #1f2937;
+      --nova-color-border-hover: #374151;
+      --nova-color-border-focus: #818cf8;
+
+      --nova-color-ring: #818cf8;
+      --nova-color-ring-offset: #030712;
+
+      --nova-color-input-background: #111827;
+      --nova-color-input-border: #374151;
+      --nova-color-input-placeholder: #6b7280;
+
+      --nova-color-overlay: rgba(0, 0, 0, 0.7);
+    }
+  }
+}

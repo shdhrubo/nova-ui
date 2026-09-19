@@ -1,0 +1,24 @@
+{
+  "name": "@nova-ui/tokens",
+  "version": "0.0.1",
+  "description": "Design tokens for Nova UI — colors, spacing, typography, radius, shadows, breakpoints",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "type-check": "tsc --noEmit"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

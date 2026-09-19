@@ -1,0 +1,25 @@
+{
+  "name": "@nova-ui/angular",
+  "version": "0.0.1",
+  "description": "Angular components for Nova UI",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "echo 'Angular build — TODO: configure ng-packagr'",
+    "test": "echo 'Angular tests — TODO: configure testing'",
+    "type-check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@angular/core": ">=17.0.0",
+    "@angular/common": ">=17.0.0"
+  },
+  "dependencies": {
+    "@nova-ui/core": "*",
+    "@nova-ui/styles": "*"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

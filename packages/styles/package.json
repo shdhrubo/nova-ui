@@ -1,0 +1,25 @@
+{
+  "name": "@nova-ui/styles",
+  "version": "0.0.1",
+  "description": "CSS architecture, themes, and utilities for Nova UI",
+  "license": "MIT",
+  "main": "./src/index.css",
+  "style": "./src/index.css",
+  "exports": {
+    ".": "./src/index.css",
+    "./reset": "./src/reset.css",
+    "./tokens": "./src/tokens.css",
+    "./themes/light": "./src/themes/light.css",
+    "./themes/dark": "./src/themes/dark.css",
+    "./utilities": "./src/utilities.css"
+  },
+  "files": ["src"],
+  "scripts": {
+    "build": "echo 'CSS package — no build step required'",
+    "test": "echo 'No tests for CSS package'"
+  },
+  "sideEffects": true,
+  "publishConfig": {
+    "access": "public"
+  }
+}

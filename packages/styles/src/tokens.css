@@ -1,0 +1,89 @@
+/**
+ * Nova UI — CSS Custom Properties (Design Tokens)
+ *
+ * All design tokens exposed as CSS custom properties.
+ * Components consume these variables — never hard-coded values.
+ */
+@layer nova.tokens {
+  :root {
+    /* ========================================
+       FONTS
+       ======================================== */
+    --nova-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --nova-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+    /* ========================================
+       FONT SIZES
+       ======================================== */
+    --nova-text-xs: 0.75rem;
+    --nova-text-sm: 0.875rem;
+    --nova-text-base: 1rem;
+    --nova-text-lg: 1.125rem;
+    --nova-text-xl: 1.25rem;
+    --nova-text-2xl: 1.5rem;
+    --nova-text-3xl: 1.875rem;
+    --nova-text-4xl: 2.25rem;
+
+    /* ========================================
+       SPACING
+       ======================================== */
+    --nova-space-0: 0px;
+    --nova-space-0-5: 2px;
+    --nova-space-1: 4px;
+    --nova-space-1-5: 6px;
+    --nova-space-2: 8px;
+    --nova-space-2-5: 10px;
+    --nova-space-3: 12px;
+    --nova-space-4: 16px;
+    --nova-space-5: 20px;
+    --nova-space-6: 24px;
+    --nova-space-8: 32px;
+    --nova-space-10: 40px;
+    --nova-space-12: 48px;
+    --nova-space-16: 64px;
+
+    /* ========================================
+       BORDER RADIUS
+       ======================================== */
+    --nova-radius-none: 0px;
+    --nova-radius-sm: 4px;
+    --nova-radius-md: 8px;
+    --nova-radius-lg: 12px;
+    --nova-radius-xl: 16px;
+    --nova-radius-2xl: 24px;
+    --nova-radius-full: 9999px;
+
+    /* ========================================
+       SHADOWS
+       ======================================== */
+    --nova-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --nova-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --nova-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --nova-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --nova-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+    /* ========================================
+       Z-INDEX
+       ======================================== */
+    --nova-z-dropdown: 1000;
+    --nova-z-sticky: 1100;
+    --nova-z-overlay: 1200;
+    --nova-z-modal: 1300;
+    --nova-z-popover: 1400;
+    --nova-z-tooltip: 1500;
+    --nova-z-toast: 1600;
+
+    /* ========================================
+       TRANSITIONS
+       ======================================== */
+    --nova-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --nova-transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --nova-transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ========================================
+       FOCUS RING
+       ======================================== */
+    --nova-ring-width: 2px;
+    --nova-ring-offset: 2px;
+  }
+}

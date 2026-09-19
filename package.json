@@ -1,0 +1,42 @@
+{
+  "name": "@nova-ui/source",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Nova UI — Open-Source Cross-Framework UI Component Library",
+  "author": "shdhrubo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shdhrubo/nova-ui.git"
+  },
+  "keywords": [
+    "ui",
+    "components",
+    "design-system",
+    "angular",
+    "react",
+    "accessible",
+    "nova-ui"
+  ],
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npx nx run-many --target=build --all",
+    "test": "npx nx run-many --target=test --all",
+    "lint": "npx nx run-many --target=lint --all",
+    "format": "npx prettier --write \"**/*.{ts,tsx,js,jsx,css,md,json}\"",
+    "format:check": "npx prettier --check \"**/*.{ts,tsx,js,jsx,css,md,json}\""
+  },
+  "devDependencies": {
+    "@nx/js": "23.2.1",
+    "@swc/helpers": "~0.5.18",
+    "nx": "23.2.1",
+    "prettier": "~3.6.2",
+    "tslib": "^2.3.0",
+    "typescript": "~6.0.3",
+    "vitest": "^3.2.0"
+  },
+  "dependencies": {}
+}

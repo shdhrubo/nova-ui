@@ -1,0 +1,66 @@
+/**
+ * Nova UI — Utility Classes
+ *
+ * Common accessibility and layout utilities.
+ * Use sparingly — prefer component-level styles.
+ */
+@layer nova.utilities {
+  /* Screen reader only — visually hidden but accessible */
+  .nova-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Undo screen reader only */
+  .nova-not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Focus ring utility */
+  .nova-focus-ring {
+    outline: var(--nova-ring-width) solid var(--nova-color-ring);
+    outline-offset: var(--nova-ring-offset);
+  }
+
+  /* Transition utilities */
+  .nova-transition {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .nova-transition-colors {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .nova-transition-transform {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nova-transition,
+    .nova-transition-colors,
+    .nova-transition-transform {
+      transition-duration: 0ms;
+    }
+  }
+}

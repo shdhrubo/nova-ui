@@ -1,0 +1,57 @@
+name: 🧩 New Component Proposal
+description: Propose a new component to be added to Nova UI
+title: '[Component]: '
+labels: ['component-proposal', 'discussion']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please use this template to propose a new UI component. Proposals are evaluated against common usefulness, accessibility requirements, design token integration, and API consistency.
+
+  - type: input
+    id: component_name
+    attributes:
+      label: Component Name
+      description: Proposed selector name (e.g., `nova-accordion`, `nova-pagination`, `nova-avatar`, `nova-drawer`)
+      placeholder: nova-accordion
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Common Use Cases
+      description: Describe why this component is broadly useful and typical workflows where it will be employed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_api
+    attributes:
+      label: Proposed API (Inputs / Outputs / Slots)
+      description: Provide a high-level API sketch in TypeScript/Angular template.
+      placeholder: |
+        <nova-accordion [multiple]="false">
+          <nova-accordion-item title="Section 1">
+            Content here...
+          </nova-accordion-item>
+        </nova-accordion>
+    validations:
+      required: true
+
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility & Keyboard Navigation (WCAG 2.1 AA)
+      description: What ARIA roles, attributes, focus management, and keyboard interaction patterns (Tab, Arrow keys, Enter/Space) should this component adhere to?
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: readiness
+    attributes:
+      label: Willingness to Contribute
+      description: Would you be open to collaborating on or implementing this component?
+      options:
+        - label: I am willing to submit a pull request implementing this component.
+        - label: I can assist with design tokens and accessibility testing.

@@ -3,15 +3,37 @@
   "version": "0.0.1",
   "description": "Framework-independent types, behavior, and accessibility utilities for Nova UI",
   "license": "MIT",
+  "author": "shdhrubo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shdhrubo/nova-ui.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/shdhrubo/nova-ui#readme",
+  "bugs": {
+    "url": "https://github.com/shdhrubo/nova-ui/issues"
+  },
+  "keywords": [
+    "nova-ui",
+    "design-system",
+    "accessibility",
+    "a11y",
+    "ui-core",
+    "headless"
+  ],
   "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "default": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "vitest run",

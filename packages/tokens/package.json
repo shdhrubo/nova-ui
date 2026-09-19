@@ -3,15 +3,38 @@
   "version": "0.0.1",
   "description": "Design tokens for Nova UI — colors, spacing, typography, radius, shadows, breakpoints",
   "license": "MIT",
+  "author": "shdhrubo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shdhrubo/nova-ui.git",
+    "directory": "packages/tokens"
+  },
+  "homepage": "https://github.com/shdhrubo/nova-ui#readme",
+  "bugs": {
+    "url": "https://github.com/shdhrubo/nova-ui/issues"
+  },
+  "keywords": [
+    "nova-ui",
+    "design-tokens",
+    "design-system",
+    "tokens",
+    "colors",
+    "spacing",
+    "typography"
+  ],
   "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "default": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "vitest run",

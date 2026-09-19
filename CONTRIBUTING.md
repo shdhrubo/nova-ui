@@ -30,22 +30,45 @@ test(modal): add focus trap tests
 chore(deps): update dependencies
 ```
 
+### Local Development
+
+```bash
+# Start the interactive showcase app
+npm start                # http://localhost:4200
+
+# Start the documentation portal
+npm run docs             # http://localhost:3000
+
+# Build all packages
+npm run build
+
+# Verify packaging integrity
+npm run pack:all
+```
+
+### Creating a Changeset
+
+If your PR introduces changes that affect published packages (`@nova-ui/tokens`, `@nova-ui/styles`, `@nova-ui/core`, `@nova-ui/angular`), create a changeset before committing:
+
+```bash
+npm run changeset
+```
+
+Follow the interactive prompts to choose the bump type (`patch`, `minor`, `major`) and provide a concise summary of the change.
+
 ### Running Checks
 
 Before submitting a PR, ensure:
 
 ```bash
-# Lint
-npx nx run-many --target=lint --all
+# Format check
+npm run format:check
 
-# Type check
-npx nx run-many --target=type-check --all
+# Build all packages
+npm run build
 
-# Tests
-npx nx run-many --target=test --all
-
-# Build
-npx nx run-many --target=build --all
+# Packaging validation
+npm run pack:all
 ```
 
 ## Pull Request Requirements

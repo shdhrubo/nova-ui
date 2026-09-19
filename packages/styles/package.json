@@ -3,19 +3,41 @@
   "version": "0.0.1",
   "description": "CSS architecture, themes, and utilities for Nova UI",
   "license": "MIT",
+  "author": "shdhrubo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shdhrubo/nova-ui.git",
+    "directory": "packages/styles"
+  },
+  "homepage": "https://github.com/shdhrubo/nova-ui#readme",
+  "bugs": {
+    "url": "https://github.com/shdhrubo/nova-ui/issues"
+  },
+  "keywords": [
+    "nova-ui",
+    "css",
+    "design-system",
+    "styles",
+    "cascade-layers",
+    "themes"
+  ],
   "main": "./src/index.css",
   "style": "./src/index.css",
   "exports": {
     ".": "./src/index.css",
+    "./layers": "./src/layers.css",
     "./reset": "./src/reset.css",
     "./tokens": "./src/tokens.css",
     "./themes/light": "./src/themes/light.css",
     "./themes/dark": "./src/themes/dark.css",
-    "./utilities": "./src/utilities.css"
+    "./utilities": "./src/utilities.css",
+    "./components/*": "./src/components/*"
   },
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
-    "build": "echo 'CSS package — no build step required'",
+    "build": "echo 'CSS package — ready for distribution'",
     "test": "echo 'No tests for CSS package'"
   },
   "sideEffects": true,

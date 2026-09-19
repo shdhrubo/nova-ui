@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Ask Questions & General Discussions
+    url: https://github.com/shdhrubo/nova-ui/discussions
+    about: Ask questions, share ideas, and connect with other developers using Nova UI.
+  - name: 📖 Nova UI Documentation & Showcase
+    url: https://github.com/shdhrubo/nova-ui#readme
+    about: Explore documentation, component APIs, design tokens, and live interactive examples.

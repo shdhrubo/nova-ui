@@ -1,0 +1,49 @@
+name: 💡 Feature Request
+description: Suggest an idea or improvement for Nova UI
+title: '[Feature]: '
+labels: ['enhancement', 'feature request']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature! Please detail the problem you are solving and the proposed solution.
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Target Package
+      options:
+        - '@nova-ui/angular'
+        - '@nova-ui/styles'
+        - '@nova-ui/tokens'
+        - '@nova-ui/core'
+        - 'apps/docs'
+        - 'Ecosystem / CLI / General'
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Motivation
+      description: Is your feature request related to a problem or missing capability? Please describe clearly.
+      placeholder: I'm always frustrated when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution / API Design
+      description: Describe the solution you'd like to see, including pseudo-code or proposed component API if applicable.
+      placeholder: |
+        <nova-component [newProp]="true" (customEvent)="handle()">
+        </nova-component>
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative solutions or workarounds you've considered.

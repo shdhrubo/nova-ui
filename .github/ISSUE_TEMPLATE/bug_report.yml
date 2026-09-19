@@ -1,0 +1,108 @@
+name: 🐛 Bug Report
+description: Create a report to help us improve Nova UI
+title: '[Bug]: '
+labels: ['bug', 'needs triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue! Please fill out the form below to help us understand and resolve the bug faster.
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Affected Package / Area
+      description: Which part of Nova UI is affected?
+      options:
+        - '@nova-ui/angular'
+        - '@nova-ui/styles'
+        - '@nova-ui/tokens'
+        - '@nova-ui/core'
+        - 'apps/docs'
+        - 'apps/demo-angular'
+        - 'Other / Tooling'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      options:
+        - Button (nova-button)
+        - Input (nova-input)
+        - Textarea (nova-textarea)
+        - Select (nova-select)
+        - Checkbox (nova-checkbox)
+        - Radio (nova-radio)
+        - Switch (nova-switch)
+        - Card (nova-card)
+        - Badge (nova-badge)
+        - Alert (nova-alert)
+        - Modal (nova-modal)
+        - Dropdown (nova-dropdown)
+        - Tooltip (nova-tooltip)
+        - Tabs (nova-tabs)
+        - Spinner (nova-spinner)
+        - Skeleton (nova-skeleton)
+        - Design Tokens / CSS Styles
+        - Not Component Specific
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Current Behavior
+      description: A clear and concise description of what is happening.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+      placeholder: |
+        1. Import `nova-button` in Angular
+        2. Set `[loading]="true"`
+        3. Observe...
+    validations:
+      required: true
+
+  - type: input
+    id: reproduction_link
+    attributes:
+      label: Minimal Reproduction Repo / StackBlitz
+      description: A link to a minimal reproduction is extremely helpful.
+      placeholder: https://stackblitz.com/...
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Info
+      description: |
+        Please provide versions of relevant tools:
+        - Nova UI version:
+        - Angular version:
+        - Browser / OS:
+        - Node.js version:
+      value: |
+        - Nova UI version: 0.1.0
+        - Angular version: 21.x
+        - Browser: Chrome / Firefox / Safari / Edge
+        - OS: Windows / macOS / Linux
+    validations:
+      required: true

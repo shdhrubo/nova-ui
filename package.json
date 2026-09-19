@@ -30,7 +30,10 @@
     "test": "npx nx run-many --target=test --all",
     "lint": "npx nx run-many --target=lint --all",
     "format": "npx prettier --write \"**/*.{ts,tsx,js,jsx,css,md,json}\"",
-    "format:check": "npx prettier --check \"**/*.{ts,tsx,js,jsx,css,md,json}\""
+    "format:check": "npx prettier --check \"**/*.{ts,tsx,js,jsx,css,md,json}\"",
+    "changeset": "npx @changesets/cli",
+    "version-packages": "npx @changesets/cli version",
+    "pack:all": "node scripts/pack-all.js"
   },
   "devDependencies": {
     "@angular/build": "^21.2.23",

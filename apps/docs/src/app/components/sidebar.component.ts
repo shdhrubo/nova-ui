@@ -25,6 +25,16 @@ import { COMPONENTS_DATA } from '../data/components-data';
           </li>
           <li>
             <a
+              routerLink="/docs/theming"
+              routerLinkActive="docs-sidebar__link--active"
+              (click)="onLinkClick()"
+              class="docs-sidebar__link"
+            >
+              <span>Theming</span>
+            </a>
+          </li>
+          <li>
+            <a
               routerLink="/docs/tokens"
               routerLinkActive="docs-sidebar__link--active"
               (click)="onLinkClick()"

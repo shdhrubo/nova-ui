@@ -28,6 +28,9 @@ export * from './tabs';
 export * from './spinner';
 export * from './skeleton';
 
+// Theme Facility (Provider & Service)
+export * from './theme';
+
 // Re-export core types for convenience
 export type {
   NovaSize,
@@ -56,5 +59,12 @@ export type {
   NovaTabsProps,
   NovaSpinnerProps,
   NovaSkeletonProps,
+  NovaThemeMode,
+  NovaThemeColors,
+  NovaThemeRadius,
+  NovaThemeTypography,
+  NovaThemeConfig,
+  NovaUIConfig,
 } from '@nova-ui-library/core';
+
 

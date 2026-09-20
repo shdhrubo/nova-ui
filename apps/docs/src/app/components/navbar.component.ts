@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NovaThemeService } from '@nova-ui-library/angular';
 import { SearchModalComponent } from './search-modal.component';
 
 @Component({
@@ -177,21 +178,16 @@ import { SearchModalComponent } from './search-modal.component';
     <docs-search-modal [(open)]="searchOpen"></docs-search-modal>
   `,
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   searchOpen = false;
   mobileMenuOpen = false;
-  currentTheme: 'light' | 'dark' = 'light';
+  theme = inject(NovaThemeService);
 
-  ngOnInit(): void {
-    const saved = localStorage.getItem('nova-theme') as 'light' | 'dark' | null;
-    const initial = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    this.currentTheme = initial;
-    document.documentElement.setAttribute('data-nova-theme', initial);
+  get currentTheme(): 'light' | 'dark' {
+    return this.theme.isDark() ? 'dark' : 'light';
   }
 
   toggleTheme(): void {
-    this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-    localStorage.setItem('nova-theme', this.currentTheme);
-    document.documentElement.setAttribute('data-nova-theme', this.currentTheme);
+    this.theme.toggleMode();
   }
 }

@@ -56,10 +56,32 @@ import { CodeBlockComponent } from '../components/code-block.component';
       <!-- Step 4 -->
       <section style="margin-bottom: var(--nova-space-8);">
         <h2 style="font-size: var(--nova-text-xl); font-weight: 700; margin: 0 0 var(--nova-space-3);">
-          4. Dark Mode & Theming
+          4. Theme Customization (Programmatic & Config-Driven)
         </h2>
         <p style="color: var(--nova-color-text-secondary); line-height: 1.6; margin: 0 0 var(--nova-space-4);">
-          Enable dark mode by toggling the <code>data-nova-theme</code> attribute on your root <code>&lt;html&gt;</code> element:
+          Configure your brand colors, border radius, and default color mode at application startup using <code>provideNovaUI()</code> in your <code>app.config.ts</code>:
+        </p>
+        <docs-code-block [code]="themeConfigCode" language="typescript"></docs-code-block>
+      </section>
+
+      <!-- Step 5 -->
+      <section style="margin-bottom: var(--nova-space-8);">
+        <h2 style="font-size: var(--nova-text-xl); font-weight: 700; margin: 0 0 var(--nova-space-3);">
+          5. Dynamic Theming at Runtime
+        </h2>
+        <p style="color: var(--nova-color-text-secondary); line-height: 1.6; margin: 0 0 var(--nova-space-4);">
+          Inject <code>NovaThemeService</code> to dynamically switch brand colors, toggle dark mode, or adjust scale anywhere in your Angular components:
+        </p>
+        <docs-code-block [code]="themeServiceCode" language="typescript"></docs-code-block>
+      </section>
+
+      <!-- Step 6 -->
+      <section style="margin-bottom: var(--nova-space-8);">
+        <h2 style="font-size: var(--nova-text-xl); font-weight: 700; margin: 0 0 var(--nova-space-3);">
+          6. HTML Attribute & CSS Variable Overrides
+        </h2>
+        <p style="color: var(--nova-color-text-secondary); line-height: 1.6; margin: 0 0 var(--nova-space-4);">
+          You can also switch themes by toggling the <code>data-nova-theme</code> attribute (<code>light</code>, <code>dark</code>, <code>system</code>) on your root <code>&lt;html&gt;</code> element or any container:
         </p>
         <docs-code-block [code]="darkModeCode" language="javascript"></docs-code-block>
       </section>
@@ -139,6 +161,54 @@ export class ProfileComponent {
 
   save() {
     console.log('Saved:', this.usernameControl.value);
+  }
+}`;
+
+  themeConfigCode = `// src/app/app.config.ts
+import { ApplicationConfig } from '@angular/core';
+import { provideNovaUI } from '@nova-ui-library/angular';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideNovaUI({
+      theme: {
+        colors: {
+          primary: '#10b981',        // Custom brand color (Emerald)
+          secondary: '#8b5cf6',
+        },
+        radius: '10px',              // Custom border radius scale
+        mode: 'light',               // 'light' | 'dark' | 'system'
+      },
+    }),
+  ],
+};`;
+
+  themeServiceCode = `import { Component, inject } from '@angular/core';
+import { NovaThemeService, NovaButtonComponent } from '@nova-ui-library/angular';
+
+@Component({
+  selector: 'app-settings',
+  standalone: true,
+  imports: [NovaButtonComponent],
+  template: \`
+    <div style="display: flex; gap: 8px;">
+      <!-- Toggle dark / light mode -->
+      <nova-button variant="outline" size="sm" (click)="theme.toggleMode()">
+        {{ theme.isDark() ? '☀️ Light' : '🌙 Dark' }}
+      </nova-button>
+
+      <!-- Switch primary color dynamically -->
+      <nova-button variant="primary" size="sm" (click)="setRose()">
+        Rose Theme
+      </nova-button>
+    </div>
+  \`,
+})
+export class SettingsComponent {
+  theme = inject(NovaThemeService);
+
+  setRose() {
+    this.theme.setColors({ primary: '#f43f5e' });
   }
 }`;
 

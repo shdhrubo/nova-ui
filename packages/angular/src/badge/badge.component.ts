@@ -22,6 +22,7 @@ import type { NovaVariant, NovaSize, NovaBadgeProps } from '@nova-ui-library/cor
   template: `<ng-content></ng-content>`,
   host: {
     'class': 'nova-badge',
+    'style': 'display: inline-flex;',
     '[class.nova-badge--primary]': 'variant === "primary"',
     '[class.nova-badge--secondary]': 'variant === "secondary"',
     '[class.nova-badge--success]': 'variant === "success"',

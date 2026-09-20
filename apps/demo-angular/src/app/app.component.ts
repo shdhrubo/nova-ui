@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
@@ -42,6 +42,8 @@ import {
   // Milestone 5
   NovaSpinnerComponent,
   NovaSkeletonComponent,
+  // Theme Facility
+  NovaThemeService,
 } from '@nova-ui-library/angular';
 
 @Component({
@@ -124,6 +126,64 @@ import {
               Featuring accessible standalone components: Spinner, Skeleton, Modal, Dropdown, Tooltip, Tabs, Form & Core suites!
             </nova-alert-description>
           </nova-alert>
+        </section>
+
+        <!-- LIVE THEME CUSTOMIZER (PROGRAMMATIC FACILITY) -->
+        <section class="demo-section" style="background: var(--nova-color-surface); border: 1px solid var(--nova-color-border); border-radius: var(--nova-radius-lg); padding: var(--nova-space-5); box-shadow: var(--nova-shadow-sm);">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--nova-space-4); margin-bottom: var(--nova-space-4);">
+            <div>
+              <div style="display: flex; align-items: center; gap: var(--nova-space-2);">
+                <span style="font-size: 1.25rem;">🎨</span>
+                <h2 style="font-size: var(--nova-text-lg); font-weight: 700; margin: 0; color: var(--nova-color-text);">
+                  Theme Customization Facility (Programmatic)
+                </h2>
+              </div>
+              <p style="font-size: var(--nova-text-xs); color: var(--nova-color-text-secondary); margin: var(--nova-space-1) 0 0 0;">
+                Powered by <code>provideNovaUI()</code> &amp; <code>NovaThemeService</code>. Pick a brand color or radius below to see every component adapt instantly!
+              </p>
+            </div>
+            <nova-button variant="outline" size="sm" (click)="resetCustomTheme()">↺ Reset Defaults</nova-button>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: var(--nova-space-6); align-items: center;">
+            <!-- Brand Color Presets -->
+            <div>
+              <label style="display: block; font-size: var(--nova-text-xs); font-weight: 600; color: var(--nova-color-text-secondary); margin-bottom: var(--nova-space-2);">
+                Primary Brand Color: <span [style.color]="activeColor" style="font-weight: 700;">{{ activeColor }}</span>
+              </label>
+              <div style="display: flex; gap: var(--nova-space-2); align-items: center;">
+                @for (preset of colorPresets; track preset.hex) {
+                  <button
+                    type="button"
+                    (click)="selectColor(preset.hex)"
+                    [title]="preset.name"
+                    [style.background]="preset.hex"
+                    [style.outline]="activeColor === preset.hex ? '2px solid var(--nova-color-text)' : 'none'"
+                    [style.outline-offset]="'2px'"
+                    style="width: 28px; height: 28px; border-radius: var(--nova-radius-full); border: none; cursor: pointer; transition: transform 0.15s ease;"
+                  ></button>
+                }
+              </div>
+            </div>
+
+            <!-- Border Radius Presets -->
+            <div>
+              <label style="display: block; font-size: var(--nova-text-xs); font-weight: 600; color: var(--nova-color-text-secondary); margin-bottom: var(--nova-space-2);">
+                Border Radius Scale
+              </label>
+              <div style="display: flex; gap: var(--nova-space-2);">
+                @for (r of radiusPresets; track r.value) {
+                  <nova-button
+                    [variant]="activeRadius === r.value ? 'primary' : 'outline'"
+                    size="sm"
+                    (click)="selectRadius(r.value)"
+                  >
+                    {{ r.label }}
+                  </nova-button>
+                }
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- SECTION 1: FEEDBACK & LOADING (MILESTONE 5) -->
@@ -746,7 +806,27 @@ import {
   `],
 })
 export class AppComponent {
+  themeService = inject(NovaThemeService);
   currentTheme: 'light' | 'dark' = 'light';
+  activeColor = '#6366f1';
+  activeRadius = '8px';
+
+  colorPresets = [
+    { name: 'Indigo (Default)', hex: '#6366f1' },
+    { name: 'Emerald', hex: '#10b981' },
+    { name: 'Rose', hex: '#f43f5e' },
+    { name: 'Amber', hex: '#f59e0b' },
+    { name: 'Violet', hex: '#8b5cf6' },
+    { name: 'Cyan', hex: '#06b6d4' },
+  ];
+
+  radiusPresets = [
+    { label: 'Sharp (0px)', value: '0px' },
+    { label: 'Default (8px)', value: '8px' },
+    { label: 'Curved (14px)', value: '14px' },
+    { label: 'Pill (9999px)', value: '9999px' },
+  ];
+
   isLoading = false;
   isDataLoaded = false;
 
@@ -802,8 +882,25 @@ export class AppComponent {
   ];
 
   toggleTheme(): void {
-    this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-nova-theme', this.currentTheme);
+    this.themeService.toggleMode();
+    this.currentTheme = this.themeService.isDark() ? 'dark' : 'light';
+  }
+
+  selectColor(hex: string): void {
+    this.activeColor = hex;
+    this.themeService.setColors({ primary: hex });
+  }
+
+  selectRadius(rad: string): void {
+    this.activeRadius = rad;
+    this.themeService.setRadius(rad);
+  }
+
+  resetCustomTheme(): void {
+    this.activeColor = '#6366f1';
+    this.activeRadius = '8px';
+    this.themeService.resetTheme();
+    this.currentTheme = 'light';
   }
 
   toggleLoading(): void {

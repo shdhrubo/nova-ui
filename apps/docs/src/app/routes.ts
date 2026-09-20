@@ -6,9 +6,12 @@ import { ArchitectureComponent } from './pages/architecture.component';
 import { ComponentsOverviewComponent } from './pages/components-overview.component';
 import { ComponentDetailComponent } from './pages/component-detail.component';
 
+import { ThemingComponent } from './pages/theming.component';
+
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'docs/getting-started', component: GettingStartedComponent },
+  { path: 'docs/theming', component: ThemingComponent },
   { path: 'docs/tokens', component: TokensComponent },
   { path: 'docs/architecture', component: ArchitectureComponent },
   { path: 'docs/components', component: ComponentsOverviewComponent },

@@ -315,7 +315,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: var(--nova-space-4);
-  background: repeating-conic-gradient(rgba(0,0,0,0.02) 0% 25%, transparent 0% 50%) 50% / 20px 20px;
+  background-color: var(--nova-color-surface);
   border-bottom: 1px solid var(--nova-color-border);
   min-height: 160px;
   border-radius: var(--nova-radius-lg) var(--nova-radius-lg) 0 0;
@@ -323,7 +323,7 @@ a {
 
 .docs-playground__tabs {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   background-color: var(--nova-color-muted);
   padding: var(--nova-space-2) var(--nova-space-4);

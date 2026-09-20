@@ -127,12 +127,6 @@ import { PropsTableComponent } from '../components/props-table.component';
 
         <div class="docs-playground">
           <div class="docs-playground__tabs">
-            <div>
-              <strong style="font-size: 0.875rem; color: var(--nova-color-text);">Interactive Sandbox</strong>
-              <span style="font-size: 0.75rem; color: var(--nova-color-text-secondary); margin-left: 12px;">
-                Executed natively by Angular 18 Standalone Runtime
-              </span>
-            </div>
             <div style="display: flex; gap: 4px;">
               <button
                 type="button"

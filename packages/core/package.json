@@ -1,6 +1,6 @@
 {
   "name": "@nova-ui-library/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Framework-independent types, behavior, and accessibility utilities for Nova UI",
   "license": "MIT",
   "author": "shdhrubo",

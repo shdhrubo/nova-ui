@@ -3,7 +3,8 @@ name: Publish Packages
 on:
   push:
     tags:
-      - 'v*.*.*' # triggers on tags like v1.0.0, v2.1.3, etc.
+      - 'pkg-v*.*.*' # packages only → e.g. pkg-v1.2.0
+      - 'all-v*.*.*' # combined       → e.g. all-v1.2.0  (also triggers docs-deploy.yml)
 
 concurrency:
   group: publish-${{ github.ref }}
@@ -13,8 +14,9 @@ permissions:
   contents: write # to create GitHub Releases
 
 jobs:
-  publish:
-    name: Version or Publish
+  # ─── Job 1: Build ────────────────────────────────────────────────────────────
+  build-packages:
+    name: Build Packages
     runs-on: ubuntu-latest
 
     steps:
@@ -35,10 +37,47 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      # Build all 4 packages in correct dependency order
+      # Build all 4 packages in correct dependency order:
       # tokens → styles → core → angular
       - name: Build packages
         run: npx nx run-many --target=build --projects=tokens,styles,core,angular
+
+      # Pass the compiled output to the publish job
+      - name: Upload packages artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: packages-dist
+          path: |
+            packages/tokens/dist
+            packages/styles/dist
+            packages/core/dist
+            packages/angular/dist
+          retention-days: 1
+
+  # ─── Job 2: Publish ──────────────────────────────────────────────────────────
+  publish-packages:
+    name: Publish to npm & Create Release
+    runs-on: ubuntu-latest
+    needs: build-packages # only runs if build-packages succeeds
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Download packages artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: packages-dist
 
       # Publish all 4 packages to npm
       - name: Publish to npm
@@ -62,4 +101,3 @@ jobs:
               draft: false,
               prerelease: tag.includes('-'),
             });
-

@@ -4,17 +4,19 @@ import { Router, RouterModule, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { NavbarComponent } from './components/navbar.component';
 import { SidebarComponent } from './components/sidebar.component';
+import { FooterComponent } from './components/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, NavbarComponent, SidebarComponent],
+  imports: [CommonModule, RouterModule, NavbarComponent, SidebarComponent, FooterComponent],
   template: `
     <docs-navbar></docs-navbar>
 
     <!-- If Landing Page -->
     <ng-container *ngIf="isHomePage">
       <router-outlet></router-outlet>
+      <docs-footer></docs-footer>
     </ng-container>
 
     <!-- If Docs Page -->
@@ -51,6 +53,7 @@ import { SidebarComponent } from './components/sidebar.component';
           <router-outlet></router-outlet>
         </main>
       </div>
+      <docs-footer></docs-footer>
     </ng-container>
   `,
 })

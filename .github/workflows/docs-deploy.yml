@@ -43,7 +43,7 @@ jobs:
       # Tag push → deploy directly to Vercel production
       - name: Deploy to Vercel (production)
         run: |
-          vercel deploy ./dist/docs \
+          vercel deploy ./dist/docs/browser \
             --token=${{ secrets.VERCEL_TOKEN }} \
             --scope=${{ secrets.VERCEL_ORG_ID }} \
             --prod \

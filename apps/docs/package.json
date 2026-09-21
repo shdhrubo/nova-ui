@@ -7,18 +7,18 @@
     "build": "ng build docs"
   },
   "dependencies": {
-    "@angular/common": "^18.2.14",
-    "@angular/core": "^18.2.14",
-    "@angular/forms": "^18.2.14",
-    "@angular/platform-browser": "^18.2.14",
-    "@angular/platform-browser-dynamic": "^18.2.14",
-    "@angular/router": "^18.2.14",
+    "@angular/common": "^21.2.23",
+    "@angular/core": "^21.2.23",
+    "@angular/forms": "^21.2.23",
+    "@angular/platform-browser": "^21.2.23",
+    "@angular/platform-browser-dynamic": "^21.2.23",
+    "@angular/router": "^21.2.23",
     "@nova-ui-library/angular": "*",
     "@nova-ui-library/core": "*",
     "@nova-ui-library/styles": "*",
     "@nova-ui-library/tokens": "*",
     "rxjs": "^7.8.2",
     "tslib": "^2.3.0",
-    "zone.js": "^0.14.10"
+    "zone.js": "~0.15.1"
   }
 }

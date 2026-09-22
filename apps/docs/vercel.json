@@ -2,6 +2,6 @@
   "buildCommand": "npm run docs:build -- --configuration production",
   "outputDirectory": "dist/docs/browser",
   "rewrites": [
-    { "source": "/(.*)/(.*)", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

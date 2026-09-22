@@ -65,6 +65,11 @@
             "tsConfig": "apps/docs/tsconfig.app.json",
             "assets": [
               {
+                "glob": "vercel.json",
+                "input": "apps/docs/src",
+                "output": "/"
+              },
+              {
                 "glob": "_redirects",
                 "input": "apps/docs/src",
                 "output": "/"

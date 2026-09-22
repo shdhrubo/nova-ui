@@ -62,6 +62,17 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
+      # Ensure vercel.json is present in dist/docs/browser so Vercel configures SPA rewrites
+      - name: Ensure vercel.json for SPA routing
+        run: |
+          cat << 'EOF' > dist/docs/browser/vercel.json
+          {
+            "rewrites": [
+              { "source": "/(.*)", "destination": "/index.html" }
+            ]
+          }
+          EOF
+
       # Tag push → deploy directly to Vercel production
       - name: Deploy to Vercel (production)
         run: |
